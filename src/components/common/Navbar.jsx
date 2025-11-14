@@ -20,15 +20,15 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-slate-900/60 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-neutral-400/10 bg-neutral-900/60 backdrop-blur-xl">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link
           to="/"
-          className="relative text-lg font-semibold uppercase tracking-[0.4em] text-slate-100 hover:text-white"
+          className="relative text-lg font-semibold uppercase tracking-[0.4em] text-neutral-100 hover:text-white"
           onClick={handleLinkClick}
         >
           Rakesh
-          <span className="absolute -top-1 -right-3 h-1 w-1 rounded-full bg-sky-400" />
+          <span className="absolute -top-1 -right-3 h-1 w-1 rounded-full bg-primary-400" />
         </Link>
 
         <div className="hidden items-center gap-10 lg:flex">
@@ -39,7 +39,7 @@ const Navbar = () => {
               onClick={handleLinkClick}
               className={({ isActive }) =>
                 cn(
-                  'relative text-sm font-medium tracking-wide text-slate-300 transition hover:text-white',
+                  'relative text-sm font-medium tracking-wide text-neutral-300 transition hover:text-white',
                   isActive && 'text-white'
                 )
               }
@@ -48,7 +48,7 @@ const Navbar = () => {
                 <span className="relative">
                   {item.label}
                   {isActive && (
-                    <Motion.span layoutId="nav-active" className="absolute -bottom-3 left-0 h-0.5 w-full bg-sky-400" />
+                    <Motion.span layoutId="nav-active" className="absolute -bottom-3 left-0 h-0.5 w-full bg-primary-400" />
                   )}
                 </span>
               )}
@@ -61,7 +61,7 @@ const Navbar = () => {
             type="button"
             aria-label="Toggle theme"
             onClick={toggleTheme}
-            className="glass group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/10 transition-all duration-300 hover:border-sky-400/60 hover:bg-sky-400/10"
+            className="glass group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-neutral-400/10 transition-all duration-300 hover:border-primary-400/60 hover:bg-primary-400/10"
           >
             <span className="sr-only">Toggle theme</span>
             <div className="relative h-5 w-5">
@@ -80,7 +80,7 @@ const Navbar = () => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="absolute inset-0 h-5 w-5 text-sky-300 transition-colors group-hover:text-sky-200"
+                    className="absolute inset-0 h-5 w-5 text-primary-400 transition-colors group-hover:text-primary-300"
                   >
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                   </Motion.svg>
@@ -98,7 +98,7 @@ const Navbar = () => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="absolute inset-0 h-5 w-5 text-amber-400 transition-colors group-hover:text-amber-300"
+                    className="absolute inset-0 h-5 w-5 text-warning transition-colors group-hover:text-warning/80"
                   >
                     <circle cx="12" cy="12" r="5" />
                     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
@@ -109,13 +109,13 @@ const Navbar = () => {
           </button>
           <Link
             to="/contact"
-            className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 px-5 py-2 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/30 transition hover:scale-[1.02] hover:shadow-emerald-500/30 lg:flex"
+            className="hidden items-center gap-2 rounded-full bg-gradient-primary px-5 py-2 text-sm font-semibold text-neutral-900 shadow-lg shadow-primary-500/30 transition hover:scale-[1.02] hover:shadow-accent-500/30 lg:flex"
           >
             Let&apos;s Talk
           </Link>
           <button
             type="button"
-            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-slate-200 hover:border-white/40 lg:hidden"
+            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-neutral-400/10 text-neutral-200 hover:border-primary-400/40 lg:hidden"
             onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >
@@ -137,7 +137,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="border-t border-white/10 bg-slate-900/90 px-6 pb-6 pt-4 lg:hidden"
+            className="border-t border-neutral-400/10 bg-neutral-900/90 px-6 pb-6 pt-4 lg:hidden"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((item) => (
@@ -146,20 +146,20 @@ const Navbar = () => {
                   to={item.path}
                   onClick={handleLinkClick}
                   className={cn(
-                    'text-base font-medium text-slate-200',
-                    location.pathname === item.path && 'text-sky-300'
+                    'text-base font-medium text-neutral-200',
+                    location.pathname === item.path && 'text-primary-400'
                   )}
                 >
                   {item.label}
                 </Link>
               ))}
-              <div className="mt-2 flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3">
-                <span className="text-sm font-medium text-slate-300">Theme</span>
+              <div className="mt-2 flex items-center justify-between rounded-lg border border-neutral-400/10 bg-neutral-800/30 px-4 py-3">
+                <span className="text-sm font-medium text-neutral-300">Theme</span>
                 <button
                   type="button"
                   aria-label="Toggle theme"
                   onClick={toggleTheme}
-                  className="group relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-white/10 transition-all duration-300 hover:border-sky-400/60 hover:bg-sky-400/10"
+                  className="group relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-neutral-400/10 transition-all duration-300 hover:border-primary-400/60 hover:bg-primary-400/10"
                 >
                   <div className="relative h-4 w-4">
                     <AnimatePresence mode="wait">
@@ -177,7 +177,7 @@ const Navbar = () => {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="absolute inset-0 h-4 w-4 text-sky-300 transition-colors group-hover:text-sky-200"
+                          className="absolute inset-0 h-4 w-4 text-primary-400 transition-colors group-hover:text-primary-300"
                         >
                           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                         </Motion.svg>
@@ -195,7 +195,7 @@ const Navbar = () => {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="absolute inset-0 h-4 w-4 text-amber-400 transition-colors group-hover:text-amber-300"
+                          className="absolute inset-0 h-4 w-4 text-warning-DEFAULT transition-colors group-hover:text-warning-light"
                         >
                           <circle cx="12" cy="12" r="5" />
                           <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
@@ -208,7 +208,7 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 onClick={handleLinkClick}
-                className="mt-4 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 px-6 py-3 text-center text-sm font-semibold text-slate-900"
+                className="mt-4 rounded-full bg-gradient-primary px-6 py-3 text-center text-sm font-semibold text-neutral-900"
               >
                 Start a Project
               </Link>

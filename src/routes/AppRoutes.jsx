@@ -6,6 +6,7 @@ import About from '../pages/About';
 import Services from '../pages/Services';
 import Portfolio from '../pages/Portfolio';
 import Blog from '../pages/Blog';
+import BlogDetail from '../pages/BlogDetail';
 import Contact from '../pages/Contact';
 
 const AppRoutes = () => {
@@ -17,6 +18,7 @@ const AppRoutes = () => {
         <Route path="/services" element={<MainLayout><Services /></MainLayout>} />
         <Route path="/portfolio" element={<MainLayout><Portfolio /></MainLayout>} />
         <Route path="/blog" element={<MainLayout><Blog /></MainLayout>} />
+        <Route path="/blog/:id" element={<MainLayout><BlogDetail /></MainLayout>} />
         <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
       </Routes>
     </BrowserRouter>

@@ -23,7 +23,7 @@ const Services = () => {
   return (
     <div className="relative overflow-hidden">
       <section className="relative overflow-hidden pb-20 pt-16 sm:pt-24">
-        <div className="absolute inset-x-0 top-0 -z-10 h-full bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-950" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-full bg-gradient-to-b from-neutral-900/40 via-neutral-900/60 to-neutral-950" />
         <div className="mx-auto max-w-6xl px-6 text-center">
           <Motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -37,7 +37,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300"
+            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-neutral-300"
           >
             From SEO to paid advertising, I deliver data-driven marketing strategies that drive measurable results. Every
             campaign is optimized for maximum ROI and continuous improvement.
@@ -55,14 +55,14 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass gradient-border flex h-full flex-col rounded-3xl border border-white/10 p-10"
+                className="glass gradient-border flex h-full flex-col rounded-3xl border border-neutral-400/10 p-10"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h2 className="text-2xl font-semibold text-white">{service.name}</h2>
-                    <p className="mt-4 text-sm leading-relaxed text-slate-300">{service.description}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-neutral-300">{service.description}</p>
                   </div>
-                  <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200">
+                  <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary-300">
                     Service
                   </span>
                 </div>
@@ -70,7 +70,7 @@ const Services = () => {
                   {service.deliverables.map((deliverable) => (
                     <span
                       key={deliverable}
-                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300"
+                      className="rounded-full border border-neutral-400/10 bg-neutral-800/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-300"
                     >
                       {deliverable}
                     </span>
@@ -78,7 +78,7 @@ const Services = () => {
                 </div>
                 <Link
                   to="/contact"
-                  className="mt-10 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-sky-300"
+                  className="mt-10 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
                 >
                   Get Started <span>→</span>
                 </Link>
@@ -89,12 +89,12 @@ const Services = () => {
       </section>
 
       <section className="py-20">
-        <div className="mx-auto max-w-6xl rounded-[3rem] border border-white/10 bg-white/5 p-12">
+        <div className="mx-auto max-w-6xl rounded-[3rem] border border-neutral-400/10 bg-neutral-800/30 p-12">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">My Process</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-400">My Process</p>
               <h2 className="mt-4 text-3xl font-semibold text-white">A Proven Four-Phase Approach</h2>
-              <p className="mt-6 text-sm leading-relaxed text-slate-300">
+              <p className="mt-6 text-sm leading-relaxed text-neutral-300">
                 Every project follows a structured methodology that ensures strategic planning, proper execution,
                 continuous optimization, and measurable results.
               </p>
@@ -107,15 +107,15 @@ const Services = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                  className="rounded-2xl border border-neutral-400/10 bg-neutral-800/30 p-6"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-sky-400/40 bg-sky-400/10 text-xs font-semibold text-sky-200">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-400/40 bg-primary-400/10 text-xs font-semibold text-primary-300">
                       0{index + 1}
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-slate-300">{step.description}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-neutral-300">{step.description}</p>
                     </div>
                   </div>
                 </Motion.div>
@@ -127,15 +127,15 @@ const Services = () => {
 
       <section className="pb-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="rounded-[3rem] border border-slate-500/20 bg-slate-900/70 p-10">
+          <div className="rounded-[3rem] border border-neutral-500/20 bg-neutral-900/70 p-10">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">Additional Services</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-accent-300">Additional Services</p>
                 <h2 className="mt-4 text-2xl font-semibold text-white">Complementary services to maximize results</h2>
               </div>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/40 transition hover:scale-[1.02]"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-neutral-900 shadow-lg shadow-primary-500/40 transition hover:scale-[1.02]"
               >
                 Discuss Your Needs
               </Link>
@@ -148,10 +148,10 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                  className="rounded-2xl border border-neutral-400/10 bg-neutral-800/30 p-6"
                 >
                   <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-slate-300">{item.description}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-neutral-300">{item.description}</p>
                 </Motion.div>
               ))}
             </div>

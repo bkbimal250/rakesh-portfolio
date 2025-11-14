@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import { blogPosts } from '../data/content'
 import CTASection from '../components/home/CTASection'
@@ -15,7 +16,7 @@ const Blog = () => {
   return (
     <div className="relative overflow-hidden">
       <section className="relative overflow-hidden pb-20 pt-16 sm:pt-24">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-900/30 via-slate-900/60 to-slate-950" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-neutral-900/30 via-neutral-900/60 to-neutral-950" />
         <div className="mx-auto max-w-6xl px-6 text-center">
           <Motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -29,7 +30,7 @@ const Blog = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300"
+            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-neutral-300"
           >
             Practical guides, tips, and insights on SEO, SEM, social media marketing, and analytics to help you grow
             your online presence and achieve better marketing results.
@@ -47,8 +48,8 @@ const Blog = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`rounded-full border px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition ${
                   selectedCategory === category
-                    ? 'border-sky-400/60 bg-sky-400/20 text-sky-200'
-                    : 'border-white/10 bg-white/5 text-slate-200 hover:border-white/40'
+                    ? 'border-primary-400/60 bg-primary-400/20 text-primary-300'
+                    : 'border-neutral-400/10 bg-neutral-800/30 text-neutral-200 hover:border-primary-400/40'
                 }`}
               >
                 {category}
@@ -58,35 +59,35 @@ const Blog = () => {
 
           {filteredPosts.length === 0 ? (
             <div className="mt-12 text-center">
-              <p className="text-slate-400">No posts found in this category.</p>
+              <p className="text-neutral-400">No posts found in this category.</p>
             </div>
           ) : (
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {filteredPosts.map((post, index) => (
                 <Motion.article
-                  key={post.title}
+                  key={post.id || post.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.12 }}
-                  className="glass gradient-border rounded-3xl border border-white/10 p-8 transition hover:border-white/20"
+                  className="glass gradient-border rounded-3xl border border-neutral-400/10 p-8 transition hover:-translate-y-1 hover:border-primary-400/20"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-300">
+                    <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
                       {post.category}
                     </span>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
                       {post.date} · {post.readingTime}
                     </p>
                   </div>
                   <h2 className="mt-4 text-2xl font-semibold text-white">{post.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-300">{post.excerpt}</p>
-                  <button
-                    type="button"
-                    className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-sky-300 transition hover:text-sky-100"
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-300">{post.excerpt}</p>
+                  <Link
+                    to={`/blog/${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
                   >
                     Read Article <span>→</span>
-                  </button>
+                  </Link>
                 </Motion.article>
               ))}
             </div>
