@@ -10,8 +10,8 @@ const PortfolioSection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">Select Work</p>
-            <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Case studies with measurable lift</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">Featured Projects</p>
+            <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Successful campaigns with measurable results</h2>
           </div>
           <Link
             to="/portfolio"

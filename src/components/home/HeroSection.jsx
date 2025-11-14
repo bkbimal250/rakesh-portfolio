@@ -65,14 +65,14 @@ const HeroSection = () => {
           <div className="gradient-border relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 sm:aspect-[3/4] lg:aspect-square">
             <img
               src={heroContent.artwork}
-              alt="Rakesh growth activation storyboard"
+              alt="Digital Marketing Executive - Rakesh Gupta"
               className="h-full w-full object-cover opacity-95"
               loading="lazy"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-200">Signature Launch Lab</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-200">Digital Marketing Expertise</p>
               <p className="mt-3 text-sm text-slate-200">
-                Motion-first storytelling, immersive demos, and orchestrated funnels crafted by Rakesh pods.
+                Data-driven strategies, continuous optimization, and measurable results that drive business growth.
               </p>
             </div>
           </div>

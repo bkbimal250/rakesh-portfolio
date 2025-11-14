@@ -9,12 +9,12 @@ const ServiceSection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">What We Build</p>
-            <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Launch-ready growth programs</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">My Services</p>
+            <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Comprehensive digital marketing solutions</h2>
           </div>
           <p className="max-w-xl text-sm leading-relaxed text-slate-400">
-            Rakesh pods are built for speed and rigor. Strategists, creatives, engineers, and growth scientists
-            collaborate inside modular sprints to ship systems that accelerate acquisition, activation, and revenue.
+            I deliver comprehensive digital marketing services with a focus on measurable results. From SEO to paid
+            advertising, every strategy is data-driven and optimized for maximum ROI and sustainable growth.
           </p>
         </div>
 
@@ -32,7 +32,7 @@ const ServiceSection = () => {
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-semibold text-white">{service.name}</h3>
                   <span className="rounded-full border border-sky-400/50 bg-sky-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-200">
-                    Pod {index + 1}
+                    Service {index + 1}
                   </span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-slate-400">{service.description}</p>
@@ -52,10 +52,10 @@ const ServiceSection = () => {
 
           <div className="glass gradient-border sticky top-32 h-fit space-y-8 rounded-3xl border border-white/10 p-8 sm:p-10">
             <div className="rounded-2xl border border-white/5 bg-white/5 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">The Rakesh Pattern</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">My Approach</p>
               <p className="mt-4 text-lg leading-relaxed text-slate-100">
-                Our launch pods operate on a four-phase growth pattern. Every sprint compounds insights to fuel the
-                next.
+                I follow a proven four-phase methodology that ensures every campaign is strategic, measurable, and
+                optimized for continuous improvement and growth.
               </p>
             </div>
             <div className="space-y-6">

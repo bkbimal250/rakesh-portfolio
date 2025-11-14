@@ -7,16 +7,16 @@ import CTASection from '../components/home/CTASection'
 const Services = () => {
   const addOns = [
     {
-      title: 'Intelligence Layer',
-      description: 'Dashboarding, analytics engineering, and revenue ops automation tuned to your KPIs.',
+      title: 'Analytics & Reporting',
+      description: 'Comprehensive tracking setup, custom dashboards, and detailed performance reports to measure and optimize your marketing ROI.',
     },
     {
-      title: 'Enablement Systems',
-      description: 'Sales enablement, customer education, and community programs that extend every launch.',
+      title: 'Content Strategy',
+      description: 'SEO-optimized content creation, keyword research, and content planning to support your organic growth goals.',
     },
     {
-      title: 'Embedded Experimentation',
-      description: 'Always-on experimentation pods for funnels, creatives, pricing, bundling, and messaging.',
+      title: 'Landing Page Optimization',
+      description: 'A/B testing, conversion rate optimization, and UX improvements to maximize the effectiveness of your campaigns.',
     },
   ]
 
@@ -31,7 +31,7 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="text-4xl font-semibold text-white sm:text-6xl"
           >
-            Marketing systems designed for compounding growth.
+            Comprehensive digital marketing services for sustainable growth.
           </Motion.h1>
           <Motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -39,8 +39,8 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300"
           >
-            From brand experiences to endlessly optimized growth loops, every service is orchestrated to drive momentum.
-            We partner as embedded teams, owning strategy, execution, and the intelligence layer in between.
+            From SEO to paid advertising, I deliver data-driven marketing strategies that drive measurable results. Every
+            campaign is optimized for maximum ROI and continuous improvement.
           </Motion.p>
         </div>
       </section>
@@ -63,7 +63,7 @@ const Services = () => {
                     <p className="mt-4 text-sm leading-relaxed text-slate-300">{service.description}</p>
                   </div>
                   <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200">
-                    Pod
+                    Service
                   </span>
                 </div>
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -80,7 +80,7 @@ const Services = () => {
                   to="/contact"
                   className="mt-10 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-sky-300"
                 >
-                  Partner with this pod <span>→</span>
+                  Get Started <span>→</span>
                 </Link>
               </Motion.article>
             ))}
@@ -92,11 +92,11 @@ const Services = () => {
         <div className="mx-auto max-w-6xl rounded-[3rem] border border-white/10 bg-white/5 p-12">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">Engagement Model</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white">The Rakesh Sprint Framework</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">My Process</p>
+              <h2 className="mt-4 text-3xl font-semibold text-white">A Proven Four-Phase Approach</h2>
               <p className="mt-6 text-sm leading-relaxed text-slate-300">
-                Every engagement is anchored in a four-phase framework. We move from alignment to scalable systems with
-                ruthless focus on velocity, clarity, and measurable outputs.
+                Every project follows a structured methodology that ensures strategic planning, proper execution,
+                continuous optimization, and measurable results.
               </p>
             </div>
             <div className="space-y-6">
@@ -130,14 +130,14 @@ const Services = () => {
           <div className="rounded-[3rem] border border-slate-500/20 bg-slate-900/70 p-10">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">Amplifiers</p>
-                <h2 className="mt-4 text-2xl font-semibold text-white">Add-on systems to accelerate impact</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-200">Additional Services</p>
+                <h2 className="mt-4 text-2xl font-semibold text-white">Complementary services to maximize results</h2>
               </div>
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/40 transition hover:scale-[1.02]"
               >
-                Scope Your Pod
+                Discuss Your Needs
               </Link>
             </div>
             <div className="mt-10 grid gap-6 md:grid-cols-3">

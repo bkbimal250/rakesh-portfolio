@@ -15,7 +15,7 @@ const Portfolio = () => {
             transition={{ duration: 0.6 }}
             className="text-4xl font-semibold text-white sm:text-6xl"
           >
-            Every launch is a story engineered for outcomes.
+            Real results from data-driven marketing campaigns.
           </Motion.h1>
           <Motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -23,8 +23,8 @@ const Portfolio = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300"
           >
-            Explore a selection of launch programs, growth systems, and experiential marketing we have delivered for
-            ambitious teams shaping the market.
+            Explore a selection of successful campaigns and projects showcasing measurable growth in SEO, SEM, Meta Ads,
+            and social media marketing.
           </Motion.p>
         </div>
       </section>
@@ -76,8 +76,8 @@ const Portfolio = () => {
 
       <section className="pb-24">
         <div className="mx-auto max-w-6xl rounded-[3rem] border border-white/10 bg-white/5 p-12 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">Proof of Impact</p>
-          <h2 className="mt-4 text-3xl font-semibold text-white">Every partnership leaves measurable velocity</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">Key Achievements</p>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Measurable results that drive business growth</h2>
           <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((metric, index) => (
               <Motion.div

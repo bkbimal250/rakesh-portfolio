@@ -12,7 +12,7 @@ const AboutHero = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl font-semibold text-white sm:text-6xl"
         >
-          We architect growth systems that feel like experiences.
+          Driving digital growth through strategic marketing excellence.
         </Motion.h1>
         <Motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -20,8 +20,9 @@ const AboutHero = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300"
         >
-          Rakesh is a collective of strategists, designers, storytellers, and growth technologists. We partner with
-          visionary teams to make every touchpoint intentional, measurable, and unforgettable.
+          I'm Rakesh Gupta, a Digital Marketing Executive with 2.5+ years of experience helping brands achieve
+          measurable growth through SEO, SEM, Meta Ads, and data-driven strategies. I combine analytical rigor with
+          creative execution to deliver results that matter.
         </Motion.p>
         <Motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -31,13 +32,13 @@ const AboutHero = () => {
         >
           <div className="rounded-[2.4rem] bg-slate-950/80 p-10">
             <p className="text-left text-sm leading-relaxed text-slate-200">
-              “We believe marketing is no longer a campaign—it&apos;s the connective tissue between every product moment,
-              every story, and every relationship. We orchestrate that connection so brands can earn attention and trust
-              with precision.”
+              "I believe in data-driven marketing that delivers real results. Every campaign I create is backed by
+              thorough research, continuous optimization, and a deep understanding of what drives conversions. My goal is
+              to help businesses grow their online presence and achieve their marketing objectives with measurable impact."
             </p>
             <div className="mt-6 flex flex-col gap-2 text-left">
-              <span className="text-sm font-semibold text-white">Elena Carter</span>
-              <span className="text-xs uppercase tracking-[0.3em] text-slate-400">Founding Partner</span>
+              <span className="text-sm font-semibold text-white">Rakesh Gupta</span>
+              <span className="text-xs uppercase tracking-[0.3em] text-slate-400">Digital Marketing Executive</span>
             </div>
           </div>
         </Motion.div>

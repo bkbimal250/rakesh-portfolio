@@ -8,9 +8,9 @@ const Testimonials = () => {
       <div className="absolute inset-x-0 top-0 -z-10 h-full bg-gradient-to-b from-slate-900/0 via-slate-900/70 to-slate-950" />
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">Partners in Growth</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-sky-300">Client Testimonials</p>
           <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
-            Loved by teams who demand measurable impact
+            Trusted by businesses for measurable results
           </h2>
         </div>
 

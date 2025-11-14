@@ -8,151 +8,151 @@ export const navLinks = [
 ]
 
 export const heroContent = {
-  badge: 'Digital Growth Studio',
-  title: 'We design magnetic digital experiences that convert at scale.',
+  badge: 'Digital Marketing Executive',
+  title: 'Driving measurable growth through data-driven digital marketing strategies.',
   subtitle:
-    'Rakesh is a performance-first marketing collective helping ambitious brands craft unforgettable journeys, activate data-driven funnels, and accelerate measurable growth.',
-  primaryCta: { label: 'Start a Project', href: '/contact' },
-  secondaryCta: { label: 'View Work', href: '/portfolio' },
+    'I specialize in SEO, SEM, Meta Ads, and social media marketing. With 2.5+ years of experience, I help brands increase traffic, generate leads, and maximize ROI through strategic campaigns and continuous optimization.',
+  primaryCta: { label: 'Get In Touch', href: '/contact' },
+  secondaryCta: { label: 'View Portfolio', href: '/portfolio' },
   artwork:
-    'https://images.unsplash.com/photo-1661961110671-77b06bcc38a7?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
   metrics: [
-    { label: 'Campaign ROI', value: '412%' },
-    { label: 'Global Launches', value: '58+' },
-    { label: 'Avg. Retention', value: '3.2 yrs' },
+    { label: 'Organic Traffic Growth', value: '60%' },
+    { label: 'Campaign ROI Boost', value: '30-40%' },
+    { label: 'Lead Generation', value: '+45%' },
   ],
 }
 
 export const marqueeClients = [
-  'Notion',
-  'Figma',
-  'Linear',
-  'Zapier',
-  'Canva',
-  'Basecamp',
-  'Intercom',
-  'Airtable',
+  'SEO',
+  'SEM',
+  'Google Ads',
+  'Meta Ads',
+  'Social Media',
+  'Analytics',
+  'Content Marketing',
+  'PPC',
 ]
 
 export const services = [
   {
-    name: 'Brand Experience Design',
+    name: 'Search Engine Optimization (SEO)',
     description:
-      'Craft magnetic visual systems, voice, and storytelling for brands looking to lead categories.',
-    deliverables: ['Brand Strategy', 'Visual Identity', 'Product Narratives'],
+      'Comprehensive SEO strategies including on-page, off-page, and technical SEO to improve organic visibility and drive qualified traffic.',
+    deliverables: ['Keyword Research', 'Technical Audits', 'Content Optimization', 'Link Building'],
   },
   {
-    name: 'Performance Growth Campaigns',
+    name: 'Search Engine Marketing (SEM)',
     description:
-      'Full-funnel experimentation, channel architecture, and CRO to turn awareness into advocates.',
-    deliverables: ['Funnel Architecture', 'Paid Media', 'Conversion Optimization'],
+      'Strategic Google Ads campaigns across search, display, and shopping networks to maximize ROI and drive conversions.',
+    deliverables: ['Campaign Setup', 'Bid Management', 'A/B Testing', 'Performance Optimization'],
   },
   {
-    name: 'Product Launch Sprints',
+    name: 'Social Media Marketing',
     description:
-      'Rapid GTM playbooks that align research, content, and enablement for breakout launches.',
-    deliverables: ['Audience Mapping', 'Launch Playbooks', 'Lifecycle Automation'],
+      'Data-driven social media campaigns on Meta (Facebook & Instagram) to build brand awareness and generate leads.',
+    deliverables: ['Ad Creation', 'Audience Targeting', 'Campaign Management', 'Analytics & Reporting'],
   },
   {
-    name: 'Content & Revenue Ops',
+    name: 'Analytics & Conversion Optimization',
     description:
-      'Editorial engines and RevOps systems that make every story measurable and monetizable.',
-    deliverables: ['Content Strategy', 'SEO & Thought Leadership', 'RevOps Automation'],
+      'Implement tracking, analyze performance data, and optimize landing pages to improve conversion rates and campaign effectiveness.',
+    deliverables: ['Google Analytics Setup', 'Conversion Tracking', 'Landing Page Optimization', 'Data Analysis'],
   },
 ]
 
 export const caseStudies = [
   {
-    title: 'Notion Growth Revamp',
-    category: 'Lifecycle Automation',
-    impact: ['+286% activation rate', '42-day onboarding reduction'],
+    title: 'E-commerce SEO Transformation',
+    category: 'SEO & Organic Growth',
+    impact: ['+60% organic traffic', '45% lead generation increase'],
     description:
-      'Rebuilt the entire onboarding journey using behavior-driven email, in-product nudges, and interactive education hubs.',
+      'Executed comprehensive SEO strategy including technical audits, keyword optimization, and content improvements that resulted in significant organic traffic growth within six months.',
     accent: 'from-[#00F5A0] via-[#00D9F5] to-[#0061FF]',
     image:
-      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Figma Enterprise Motion',
-    category: 'Product Launch',
-    impact: ['7M launch impressions', '31% enterprise pipeline lift'],
+    title: 'Google Ads Performance Campaign',
+    category: 'Paid Search & SEM',
+    impact: ['30-40% ROI boost', 'Reduced CAC by 36%'],
     description:
-      'Crafted a modular launch system with immersive hero storytelling, live design summits, and tailored demos.',
+      'Optimized Google Ads campaigns through advanced bidding strategies, refined audience segmentation, and continuous A/B testing to maximize ROI and reduce cost per acquisition.',
     accent: 'from-[#FF8C68] via-[#F5317F] to-[#6540F5]',
     image:
-      'https://images.unsplash.com/photo-1521737604893-0f2c5a4ed0c9?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Zapier Ecosystem Arc',
-    category: 'Content Systems',
-    impact: ['3x partner co-marketing', '19% churn reduction'],
+    title: 'Meta Ads Lead Generation',
+    category: 'Social Media Marketing',
+    impact: ['45% lead increase', 'Improved CTR by 28%'],
     description:
-      'Built an evergreen content engine powered by automation data storytelling and partner enablement design.',
+      'Designed and managed Meta Ads campaigns with strategic audience targeting, creative optimization, and retargeting strategies that significantly improved lead generation performance.',
     accent: 'from-[#FFE259] via-[#FFA751] to-[#FF5F6D]',
     image:
-      'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Linear Acquisition Pod',
-    category: 'Performance Marketing',
-    impact: ['4.6x paid media ROI', 'Top-of-funnel CAC -36%'],
+    title: 'Technical SEO & Site Optimization',
+    category: 'Technical SEO',
+    impact: ['Improved crawlability', 'Fixed 50+ broken links'],
     description:
-      'Scaled a modular growth pod with real-time creative feedback loops, predictive audiences, and landing experiments.',
+      'Conducted technical SEO audits using Screaming Frog, resolved crawlability issues, fixed broken links, and optimized site structure to improve search engine visibility and user experience.',
     accent: 'from-[#A259FF] via-[#3A7BF9] to-[#00C4FF]',
     image:
-      'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
   },
 ]
 
 export const processSteps = [
   {
-    title: 'Discover & Align',
+    title: 'Research & Strategy',
     description:
-      'We facilitate vision mapping workshops to translate brand ambition into measurable marketing outcomes.',
+      'I analyze your business goals, target audience, and competitive landscape to develop a data-driven marketing strategy aligned with your objectives.',
   },
   {
-    title: 'Design & Prototype',
+    title: 'Campaign Setup & Launch',
     description:
-      'Our experience, motion, and content teams collaborate in sprints to craft signature experiences.',
+      'I set up and launch campaigns across chosen channels (SEO, Google Ads, Meta Ads) with proper tracking, targeting, and optimization from day one.',
   },
   {
-    title: 'Launch & Amplify',
+    title: 'Monitor & Optimize',
     description:
-      'We orchestrate full-funnel execution with real-time optimization across channels and platforms.',
+      'I continuously monitor campaign performance, analyze data, and implement optimizations to improve ROI, reduce costs, and maximize results.',
   },
   {
-    title: 'Scale & Learn',
+    title: 'Report & Scale',
     description:
-      'We operationalize insights with growth loops, automation, and enablement to sustain momentum.',
+      'I provide detailed performance reports with actionable insights and scale successful strategies to drive sustained growth.',
   },
 ]
 
 export const testimonials = [
   {
     quote:
-      'Rakesh turned our fragmented funnels into a single, connected story. Every touchpoint now feels intentional and drives measurable lift.',
-    name: 'Alison Vega',
-    role: 'VP Growth, Notion',
+      'Rakesh transformed our online presence with his SEO expertise. Our organic traffic increased by 60% within six months, and the quality of leads improved significantly.',
+    name: 'Client Testimonial',
+    role: 'E-commerce Business Owner',
   },
   {
     quote:
-      'The team has an uncanny ability to translate complex product value into motion-first narratives that our enterprise buyers remember.',
-    name: 'Jasper Cole',
-    role: 'Head of Marketing, Figma',
+      'Working with Rakesh on our Google Ads campaigns was a game-changer. He optimized our campaigns and boosted ROI by 35% while reducing our cost per acquisition.',
+    name: 'Client Testimonial',
+    role: 'B2B Service Provider',
   },
   {
     quote:
-      'Within three months we were operating with a fully automated content and revenue ops system. The results speak for themselves.',
-    name: 'Priya Dhawan',
-    role: 'Chief Revenue Officer, Zapier',
+      'Rakesh\'s strategic approach to Meta Ads helped us generate 45% more qualified leads. His attention to detail and data-driven optimizations made all the difference.',
+    name: 'Client Testimonial',
+    role: 'Digital Agency Client',
   },
 ]
 
 export const metrics = [
-  { value: '62+', label: 'Growth Specialists' },
-  { value: '14', label: 'Countries Collaborating' },
-  { value: '98%', label: 'Client Satisfaction' },
-  { value: '120M+', label: 'Views Generated' },
+  { value: '2.5+', label: 'Years Experience' },
+  { value: '60%', label: 'Traffic Growth' },
+  { value: '30-40%', label: 'ROI Improvement' },
+  { value: '45%', label: 'Lead Increase' },
 ]
 
 export const team = [
@@ -181,31 +181,58 @@ export const team = [
 
 export const blogPosts = [
   {
-    title: 'Designing Motion-First Product Narratives',
+    title: '5 Essential SEO Strategies for 2025',
     excerpt:
-      'How leading teams choreograph product moments with experiential storytelling that moves metrics.',
-    date: 'Oct 14, 2025',
+      'Discover the latest SEO techniques and best practices that can help improve your website\'s organic visibility and drive qualified traffic.',
+    date: 'Jan 15, 2025',
     readingTime: '7 min read',
+    category: 'SEO',
   },
   {
-    title: 'Building an Adaptive Growth Pod',
+    title: 'Maximizing ROI with Google Ads Optimization',
     excerpt:
-      'A blueprint for aligning marketing, product, and data to capture compounding acquisition gains.',
-    date: 'Sep 27, 2025',
+      'Learn how to optimize your Google Ads campaigns through strategic bidding, audience targeting, and continuous testing to maximize returns.',
+    date: 'Dec 28, 2024',
     readingTime: '5 min read',
+    category: 'SEM & PPC',
   },
   {
-    title: 'Automation as a Creative Partner',
+    title: 'Meta Ads Best Practices for Lead Generation',
     excerpt:
-      'Why the next wave of revenue innovation pairs machine intelligence with human resonance.',
-    date: 'Aug 18, 2025',
+      'A comprehensive guide to creating effective Meta Ads campaigns that generate high-quality leads and improve conversion rates.',
+    date: 'Dec 10, 2024',
     readingTime: '6 min read',
+    category: 'Social Media',
+  },
+  {
+    title: 'Technical SEO: A Complete Guide to Site Optimization',
+    excerpt:
+      'Learn how to conduct technical SEO audits, fix crawlability issues, and optimize your website structure for better search engine visibility.',
+    date: 'Nov 22, 2024',
+    readingTime: '8 min read',
+    category: 'SEO',
+  },
+  {
+    title: 'Google Analytics 4: Setting Up Conversion Tracking',
+    excerpt:
+      'Step-by-step guide to implementing GA4 conversion tracking, setting up goals, and analyzing performance data to make data-driven decisions.',
+    date: 'Nov 5, 2024',
+    readingTime: '6 min read',
+    category: 'Analytics',
+  },
+  {
+    title: 'Keyword Research Strategies for Better Rankings',
+    excerpt:
+      'Master the art of keyword research using tools like SEMrush and Google Keyword Planner to identify high-value opportunities for your SEO campaigns.',
+    date: 'Oct 18, 2024',
+    readingTime: '5 min read',
+    category: 'SEO',
   },
 ]
 
 export const contactChannels = [
   {
-    label: 'Studio',
+    label: 'Location',
     value: 'Turbhe, Navi Mumbai, Maharashtra',
   },
   {

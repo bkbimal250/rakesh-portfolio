@@ -61,10 +61,51 @@ const Navbar = () => {
             type="button"
             aria-label="Toggle theme"
             onClick={toggleTheme}
-            className="glass flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition hover:border-white/40"
+            className="glass group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/10 transition-all duration-300 hover:border-sky-400/60 hover:bg-sky-400/10"
           >
             <span className="sr-only">Toggle theme</span>
-            <span className="text-slate-200">{theme === 'light' ? '☀️' : '🌙'}</span>
+            <div className="relative h-5 w-5">
+              <AnimatePresence mode="wait">
+                {theme === 'dark' ? (
+                  <Motion.svg
+                    key="moon"
+                    initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="absolute inset-0 h-5 w-5 text-sky-300 transition-colors group-hover:text-sky-200"
+                  >
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </Motion.svg>
+                ) : (
+                  <Motion.svg
+                    key="sun"
+                    initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="absolute inset-0 h-5 w-5 text-amber-400 transition-colors group-hover:text-amber-300"
+                  >
+                    <circle cx="12" cy="12" r="5" />
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                  </Motion.svg>
+                )}
+              </AnimatePresence>
+            </div>
           </button>
           <Link
             to="/contact"
@@ -112,6 +153,58 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
+              <div className="mt-2 flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3">
+                <span className="text-sm font-medium text-slate-300">Theme</span>
+                <button
+                  type="button"
+                  aria-label="Toggle theme"
+                  onClick={toggleTheme}
+                  className="group relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-white/10 transition-all duration-300 hover:border-sky-400/60 hover:bg-sky-400/10"
+                >
+                  <div className="relative h-4 w-4">
+                    <AnimatePresence mode="wait">
+                      {theme === 'dark' ? (
+                        <Motion.svg
+                          key="moon-mobile"
+                          initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                          exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                          transition={{ duration: 0.3, ease: 'easeInOut' }}
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="absolute inset-0 h-4 w-4 text-sky-300 transition-colors group-hover:text-sky-200"
+                        >
+                          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </Motion.svg>
+                      ) : (
+                        <Motion.svg
+                          key="sun-mobile"
+                          initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                          exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                          transition={{ duration: 0.3, ease: 'easeInOut' }}
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="absolute inset-0 h-4 w-4 text-amber-400 transition-colors group-hover:text-amber-300"
+                        >
+                          <circle cx="12" cy="12" r="5" />
+                          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                        </Motion.svg>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </button>
+              </div>
               <Link
                 to="/contact"
                 onClick={handleLinkClick}

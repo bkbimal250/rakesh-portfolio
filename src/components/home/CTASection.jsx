@@ -14,7 +14,7 @@ const CTASection = () => {
             transition={{ duration: 0.5 }}
             className="text-3xl font-semibold text-white sm:text-4xl"
           >
-            Launch something the market will feel.
+            Ready to grow your digital presence?
           </Motion.h2>
           <Motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -23,8 +23,8 @@ const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-4 text-base leading-relaxed text-slate-200"
           >
-            Book a discovery sprint and we&apos;ll map the opportunities hidden inside your funnel, product narrative,
-            and revenue ops stack.
+            Let&apos;s discuss how I can help you achieve your marketing goals with data-driven strategies that deliver
+            measurable results.
           </Motion.p>
           <Motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -37,13 +37,13 @@ const CTASection = () => {
               to="/contact"
               className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/40 transition hover:scale-[1.02]"
             >
-              Schedule Discovery
+              Get In Touch
             </Link>
             <Link
               to="/portfolio"
               className="inline-flex items-center justify-center rounded-full border border-white/30 px-8 py-3 text-sm font-semibold text-white transition hover:border-white/60"
             >
-              Explore Portfolio
+              View Portfolio
             </Link>
           </Motion.div>
         </div>
