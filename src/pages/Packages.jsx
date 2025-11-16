@@ -8,7 +8,7 @@ const Packages = () => {
     { name: 'eCommerce', desc: 'Storefronts with secure checkout and growth tooling.' },
   ]
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12">
+    <section className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
       <SectionTitle title="Website Packages" subtitle="Choose the right starting point for your business" />
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {tiers.map((t) => (

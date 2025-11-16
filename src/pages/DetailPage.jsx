@@ -16,7 +16,7 @@ const DetailPage = ({ kind, heading }) => {
   }
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-12">
+    <section className="mx-auto max-w-5xl px-6 py-16 lg:py-20">
       <SectionTitle title={`${heading}: ${item.title}`} subtitle={item.summary} />
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         <div className="md:col-span-2 rounded-xl border border-neutral-700/30 bg-neutral-900/40 p-6">

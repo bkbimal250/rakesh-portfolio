@@ -3,7 +3,7 @@ import SectionTitle from '../components/common/SectionTitle'
 
 const Consulting = () => {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12">
+    <section className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
       <SectionTitle title="Consulting" subtitle="Workshops and Fractional CXO services" />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-neutral-700/30 bg-neutral-900/40 p-6">

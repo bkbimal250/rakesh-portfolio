@@ -26,7 +26,7 @@ const Work = () => {
     { value: '5 Years', label: 'Project Success' },
   ]
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12">
+    <section className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
       <SectionTitle title="Work" subtitle="Selected projects, clients, and case studies" />
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -38,7 +38,7 @@ const Work = () => {
         ))}
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         {highlights.map((h) => (
           <div key={h.title} className="rounded-xl border border-neutral-700/30 bg-neutral-900/40 p-6">
             <div className="h-40 w-full overflow-hidden rounded-lg">

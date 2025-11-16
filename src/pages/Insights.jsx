@@ -4,9 +4,9 @@ import { blogPosts } from '../data/content'
 
 const Insights = () => {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12">
+    <section className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
       <SectionTitle title="Insights" subtitle="News and blogs from Rahadigital" />
-      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {blogPosts.slice(0, 6).map((post) => (
           <article key={post.id} className="rounded-xl border border-neutral-700/30 bg-neutral-900/40 p-6">
             <div className="h-40 w-full rounded-lg border border-dashed border-neutral-600/50" />
