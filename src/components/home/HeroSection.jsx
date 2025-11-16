@@ -6,7 +6,9 @@ import { heroContent, marqueeClients } from '../../data/content'
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden pb-20 pt-24 sm:pt-32">
-      <div className="absolute inset-x-0 top-0 -z-10 h-96 bg-gradient-to-b from-primary-500/20 via-transparent to-transparent" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-96 bg-hero-overlay" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-orb-primary" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-orb-secondary" />
 
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16">
         <Motion.div
@@ -65,14 +67,14 @@ const HeroSection = () => {
           <div className="gradient-border relative aspect-[4/5] overflow-hidden rounded-3xl border border-neutral-400/10 bg-neutral-900/70 sm:aspect-[3/4] lg:aspect-square">
             <img
               src={heroContent.artwork}
-              alt="Digital Marketing Executive - Rakesh Gupta"
+              alt="Rahadigital — Full-Service Agency"
               className="h-full w-full object-cover opacity-95"
               loading="lazy"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/40 to-transparent p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300">Digital Marketing Expertise</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-300">Agency Excellence</p>
               <p className="mt-3 text-sm text-neutral-200">
-                Data-driven strategies, continuous optimization, and measurable results that drive business growth.
+                Strategy, design, and technology—crafted for measurable business growth.
               </p>
             </div>
           </div>

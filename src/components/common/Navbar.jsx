@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion as Motion } from 'framer-motion'
 import { navLinks } from '../../data/content'
@@ -10,13 +10,122 @@ const Navbar = () => {
   const location = useLocation()
   const { theme, toggleTheme } = useTheme()
   const { isMenuOpen, setIsMenuOpen } = useUI()
+  const [openMenu, setOpenMenu] = useState(null)
 
   useEffect(() => {
     setIsMenuOpen(false)
+    setOpenMenu(null)
   }, [location.pathname, setIsMenuOpen])
 
   const handleLinkClick = () => {
     setIsMenuOpen(false)
+    setOpenMenu(null)
+  }
+
+  const mega = {
+    Services: [
+      {
+        title: 'Design',
+        items: [
+          { label: 'Website Design', href: '/services/design' },
+          { label: 'Speed Optimization', href: '/services/design' },
+          { label: 'Conversion Rate Optimization', href: '/services/design' },
+          { label: 'Responsive Design', href: '/services/design' },
+          { label: 'WordPress to HTML', href: '/services/design' },
+          { label: 'UI/UX Design', href: '/services/design' },
+          { label: 'Website Maintenance', href: '/services/design' },
+        ],
+      },
+      {
+        title: 'Digital Marketing',
+        items: [
+          { label: 'SEO', href: '/services/digital-marketing' },
+          { label: 'Social Media', href: '/services/digital-marketing' },
+          { label: 'Content Marketing', href: '/services/digital-marketing' },
+          { label: 'Email Marketing', href: '/services/digital-marketing' },
+          { label: 'Personal Branding', href: '/services/digital-marketing' },
+          { label: 'Growth Hacking', href: '/services/digital-marketing' },
+          { label: 'PPC Campaigns', href: '/services/digital-marketing' },
+          { label: 'Influencer Marketing', href: '/services/digital-marketing' },
+        ],
+      },
+      {
+        title: 'Technology',
+        items: [
+          { label: 'Data & AI', href: '/services/technology' },
+          { label: 'E‑Commerce', href: '/services/technology' },
+          { label: 'Catalog', href: '/services/technology' },
+          { label: 'Mobile Apps', href: '/services/technology' },
+          { label: 'CMS', href: '/services/technology' },
+          { label: 'IoT', href: '/services/technology' },
+          { label: 'VR', href: '/services/technology' },
+          { label: 'ERP', href: '/services/technology' },
+          { label: 'Shopify Dev', href: '/services/technology' },
+          { label: 'WordPress Dev', href: '/services/technology' },
+        ],
+      },
+      {
+        title: 'Website Packages',
+        items: [
+          { label: 'Website', href: '/packages' },
+          { label: 'Catalog', href: '/packages' },
+          { label: 'eCommerce', href: '/packages' },
+        ],
+      },
+    ],
+    Solutions: [
+      {
+        title: 'Solutions',
+        items: [
+          { label: 'Fitmate', href: '/solutions/fitmate' },
+          { label: 'Cam360 Studio', href: '/solutions/cam360-studio' },
+          { label: 'Assessmo', href: '/solutions/assessmo' },
+          { label: 'Webino', href: '/solutions/webino' },
+          { label: 'VR Magic', href: '/solutions/vr-magic' },
+          { label: 'BizOn', href: '/solutions/bizon' },
+        ],
+      },
+    ],
+    Industries: [
+      {
+        title: 'Industries',
+        items: [
+          { label: 'Education', href: '/industries/education' },
+          { label: 'Information Technology', href: '/industries/information-technology' },
+          { label: 'Hospitality', href: '/industries/hospitality' },
+          { label: 'Healthcare', href: '/industries/healthcare' },
+          { label: 'Pharma', href: '/industries/pharma' },
+        ],
+      },
+    ],
+    Work: [
+      {
+        title: 'Work',
+        items: [
+          { label: 'Portfolio', href: '/work/portfolio' },
+          { label: 'Clients', href: '/work/clients' },
+          { label: 'Case Studies', href: '/work/case-studies' },
+        ],
+      },
+    ],
+    Insights: [
+      {
+        title: 'Insights',
+        items: [
+          { label: 'News', href: '/insights/news' },
+          { label: 'Blogs', href: '/insights/blogs' },
+        ],
+      },
+    ],
+    Consulting: [
+      {
+        title: 'Consulting',
+        items: [
+          { label: 'Workshops', href: '/consulting' },
+          { label: 'Fractional CXO', href: '/consulting' },
+        ],
+      },
+    ],
   }
 
   return (
@@ -27,33 +136,143 @@ const Navbar = () => {
           className="relative text-lg font-semibold uppercase tracking-[0.4em] text-neutral-100 hover:text-white"
           onClick={handleLinkClick}
         >
-          Rakesh
+          Rahadigital
           <span className="absolute -top-1 -right-3 h-1 w-1 rounded-full bg-primary-400" />
         </Link>
 
-        <div className="hidden items-center gap-10 lg:flex">
-          {navLinks.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              onClick={handleLinkClick}
-              className={({ isActive }) =>
-                cn(
-                  'relative text-sm font-medium tracking-wide text-neutral-300 transition hover:text-white',
-                  isActive && 'text-white'
-                )
-              }
-            >
-              {({ isActive }) => (
-                <span className="relative">
-                  {item.label}
-                  {isActive && (
-                    <Motion.span layoutId="nav-active" className="absolute -bottom-3 left-0 h-0.5 w-full bg-primary-400" />
+        <div className="hidden items-center gap-8 lg:flex">
+          {navLinks.map((item) => {
+            const hasMega = mega[item.label]
+            const rightAlignedLabels = ['Work', 'Insights', 'Consulting', 'Contact']
+            const isRightAligned = rightAlignedLabels.includes(item.label)
+            const isServices = item.label === 'Services'
+            return (
+              <div
+                key={item.path}
+                className="relative"
+                onMouseEnter={() => setOpenMenu(item.label)}
+                onMouseLeave={() => setOpenMenu((prev) => (prev === item.label ? null : prev))}
+              >
+                <NavLink
+                  to={item.path}
+                  onClick={handleLinkClick}
+                  className={({ isActive }) =>
+                    cn(
+                      'relative text-sm font-medium tracking-wide text-neutral-300 transition hover:text-white',
+                      isActive && 'text-white'
+                    )
+                  }
+                >
+                  {({ isActive }) => (
+                    <span className="relative">
+                      {item.label}
+                      {isActive && (
+                        <Motion.span layoutId="nav-active" className="absolute -bottom-3 left-0 h-0.5 w-full bg-primary-400" />
+                      )}
+                    </span>
                   )}
-                </span>
-              )}
-            </NavLink>
-          ))}
+                </NavLink>
+
+                <AnimatePresence>
+                  {hasMega && openMenu === item.label && (
+                    <Motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                      className={cn(
+                        'absolute mt-4 max-w-[95vw] rounded-2xl border border-neutral-700/30 bg-neutral-900/90 p-8 shadow-2xl',
+                        isRightAligned ? 'right-0 left-auto translate-x-0' : 'left-1/2 -translate-x-1/2',
+                        isServices ? 'min-w-[960px] w-auto' : 'min-w-[720px] w-auto'
+                      )}
+                    >
+                      {!isServices ? (
+                        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+                          {mega[item.label].map((col) => (
+                            <div key={col.title} className="rounded-xl border border-neutral-700/30 bg-neutral-900/60 p-5">
+                              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-neutral-300">
+                                {col.title}
+                              </div>
+                              <ul className="mt-3 space-y-2.5">
+                                {col.items.map((link) => (
+                                  <li key={link.label} className="border-t border-neutral-700/20 pt-2 first:border-t-0 first:pt-0">
+                                    <Link
+                                      to={link.href}
+                                      className="block text-sm text-neutral-200 transition hover:text-primary-300"
+                                      onClick={handleLinkClick}
+                                    >
+                                      {link.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="grid gap-7 md:grid-cols-4 lg:grid-cols-5">
+                          <div className="md:col-span-3 lg:col-span-4">
+                            <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+                              {mega[item.label].map((col) => (
+                                <div key={col.title} className="rounded-xl border border-neutral-700/30 bg-neutral-900/60 p-5">
+                                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-neutral-300">
+                                    {col.title}
+                                  </div>
+                                  <ul className="mt-3 space-y-2.5">
+                                    {col.items.map((link) => (
+                                      <li key={link.label} className="border-t border-neutral-700/20 pt-2 first:border-t-0 first:pt-0">
+                                        <Link
+                                          to={link.href}
+                                          className="block text-sm text-neutral-200 transition hover:text-primary-300"
+                                          onClick={handleLinkClick}
+                                        >
+                                          {link.label}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-6">
+                            <Link
+                              to="/patient-support"
+                              onClick={handleLinkClick}
+                              className="rounded-xl border border-neutral-700/30 bg-neutral-900/60 p-5 transition hover:border-primary-400/40"
+                            >
+                              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-neutral-400">
+                                Patient Support/ Access Program
+                              </div>
+                              <p className="mt-2 text-sm text-neutral-300">
+                                Comprehensive resources for optimal well being of patients
+                              </p>
+                              <div className="mt-4 h-24 w-full rounded-lg border border-dashed border-neutral-600/50" />
+                              <div className="mt-3 text-xs font-semibold tracking-widest text-primary-300">Learn More →</div>
+                            </Link>
+                            <Link
+                              to="/video-production"
+                              onClick={handleLinkClick}
+                              className="rounded-xl border border-neutral-700/30 bg-neutral-900/60 p-5 transition hover:border-primary-400/40"
+                            >
+                              <div className="text-xs font-semibold uppercase tracking-[0.35em] text-neutral-400">
+                                Video Production
+                              </div>
+                              <p className="mt-2 text-sm text-neutral-300">
+                                Cutting-edge visually stunning masterpieces
+                              </p>
+                              <div className="mt-4 h-24 w-full rounded-lg border border-dashed border-neutral-600/50" />
+                              <div className="mt-3 text-xs font-semibold tracking-widest text-primary-300">Learn More →</div>
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </Motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )
+          })}
         </div>
 
         <div className="flex items-center gap-3">

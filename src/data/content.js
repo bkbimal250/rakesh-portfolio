@@ -1,25 +1,27 @@
 export const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
-  { label: 'Portfolio', path: '/portfolio' },
-  { label: 'Blog', path: '/blog' },
+  { label: 'Solutions', path: '/solutions' },
+  { label: 'Industries', path: '/industries' },
+  { label: 'Work', path: '/work' },
+  { label: 'Insights', path: '/insights' },
+  { label: 'Consulting', path: '/consulting' },
   { label: 'Contact', path: '/contact' },
 ]
 
 export const heroContent = {
-  badge: 'Digital Marketing Executive',
-  title: 'Driving measurable growth through data-driven digital marketing strategies.',
+  badge: 'Rahadigital — Full-Service Agency',
+  title: 'Design, marketing, and technology that move businesses forward.',
   subtitle:
-    'I specialize in SEO, SEM, Meta Ads, and social media marketing. With 2.5+ years of experience, I help brands increase traffic, generate leads, and maximize ROI through strategic campaigns and continuous optimization.',
-  primaryCta: { label: 'Get In Touch', href: '/contact' },
-  secondaryCta: { label: 'View Portfolio', href: '/portfolio' },
+    'A 360° partner for websites, speed, CRO, SEO, social, content, data, AI, e‑commerce, and apps. We craft outcomes—not just deliverables.',
+  primaryCta: { label: 'Start a Project', href: '/contact' },
+  secondaryCta: { label: 'See Our Work', href: '/work' },
   artwork:
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop',
   metrics: [
-    { label: 'Organic Traffic Growth', value: '60%' },
-    { label: 'Campaign ROI Boost', value: '30-40%' },
-    { label: 'Lead Generation', value: '+45%' },
+    { label: 'Projects Delivered', value: '520' },
+    { label: 'Execution Success', value: '100%' },
+    { label: 'Avg Client Retention', value: '6.2y' },
   ],
 }
 

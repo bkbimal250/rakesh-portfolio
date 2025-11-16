@@ -14,7 +14,7 @@ const PortfolioSection = () => {
             <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Successful campaigns with measurable results</h2>
           </div>
           <Link
-            to="/portfolio"
+            to="/work"
             className="inline-flex items-center justify-center rounded-full border border-neutral-400/20 px-5 py-2 text-sm font-semibold text-neutral-100 transition hover:border-primary-400/40 hover:text-primary-300"
           >
             View All Work

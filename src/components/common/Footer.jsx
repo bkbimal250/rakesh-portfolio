@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
           <Link to="/" className="text-2xl font-semibold uppercase tracking-[0.4em] text-white">
-            Rakesh
+            Rahadigital
           </Link>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-neutral-400">
             We partner with market-making brands to architect experiential marketing, product storytelling, and
@@ -61,7 +61,7 @@ const Footer = () => {
       </div>
       <div className="border-t border-neutral-400/10 py-4">
         <p className="text-center text-xs text-neutral-500">
-          © {new Date().getFullYear()} Rakesh. Crafted with intention in Turbhe Navi Mumbai &amp; India.
+          © {new Date().getFullYear()} Rahadigital. Crafted with intention in India.
         </p>
       </div>
     </footer>
