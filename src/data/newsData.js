@@ -42,7 +42,7 @@ export const newsItems = [
       <h2>Partnership Details</h2>
       <p>This partnership brings together our expertise in digital marketing with advanced technology solutions, enabling us to offer more comprehensive and innovative services to businesses across various industries.</p>
       
-      <h2>Benefits for Our Clients</h2>
+      <h2 className="text-2xl font-semibold text-orange-500">Benefits for Our Clients</h2>
       <ul>
         <li><strong>Enhanced Technology Stack:</strong> Access to advanced tools and platforms for better campaign management</li>
         <li><strong>Improved Analytics:</strong> More sophisticated data analysis and reporting capabilities</li>

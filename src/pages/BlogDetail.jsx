@@ -3,10 +3,32 @@ import { useParams, Link } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import { blogPosts } from '../data/content'
 import CTASection from '../components/home/CTASection'
+import useTheme from '../hooks/useTheme'
 
 const BlogDetail = () => {
   const { id } = useParams()
   const article = blogPosts.find((post) => post.id === id)
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
+
+  const heroGradient = isLight
+    ? 'from-[#FFF1E0]/90 via-[#FFF8F0] to-white'
+    : 'from-neutral-900/30 via-neutral-900/60 to-neutral-950'
+  const headingClass = isLight ? 'text-[#FF6F00]' : 'text-white'
+  const subtitleClass = isLight ? 'text-[#7A4C1E]' : 'text-neutral-400'
+  const bodyTextClass = isLight ? 'text-[#4A4A4A]' : 'text-neutral-300'
+  const metaTextClass = isLight ? 'text-[#7A4C1E]' : 'text-neutral-400'
+  const badgeClass = isLight
+    ? 'rounded-full border border-[#FF6F00]/25 bg-[#FF6F00]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#B34D00]'
+    : 'rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300'
+  const shareButtonClass = isLight
+    ? 'rounded-full border border-[#F4A300]/25 bg-white/80 p-3 text-[#7A4C1E] shadow-sm shadow-[#FF6F00]/10 transition hover:border-[#FF6F00]/40 hover:text-[#FF6F00]'
+    : 'rounded-full border border-neutral-400/20 bg-neutral-800/30 p-3 text-neutral-400 transition hover:border-primary-400/40 hover:text-primary-400'
+  const backButtonClass = isLight
+    ? 'inline-flex items-center gap-2 rounded-full border border-[#F4A300]/25 bg-white/85 px-6 py-3 text-sm font-semibold text-[#7A4C1E] shadow-sm shadow-[#FF6F00]/10 transition hover:border-[#FF6F00]/40 hover:text-[#FF6F00]'
+    : 'inline-flex items-center gap-2 rounded-full border border-neutral-400/20 bg-neutral-800/30 px-6 py-3 text-sm font-semibold text-neutral-300 transition hover:border-primary-400/40 hover:text-primary-300'
+  const proseClass = isLight ? 'prose prose-lg max-w-none' : 'prose prose-invert prose-lg max-w-none'
+  const articleContentVariant = isLight ? 'article-content--light' : 'article-content--dark'
 
   if (!article) {
     return (
@@ -30,7 +52,7 @@ const BlogDetail = () => {
     <div className="relative overflow-hidden">
       {/* Hero Section */}
       <section className="relative overflow-hidden pb-20 pt-16 sm:pt-24">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-neutral-900/30 via-neutral-900/60 to-neutral-950" />
+        <div className={`absolute inset-0 -z-10 bg-gradient-to-b ${heroGradient}`} />
         <div className="mx-auto max-w-4xl px-6">
           <Motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -39,26 +61,32 @@ const BlogDetail = () => {
           >
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-neutral-400 transition hover:text-primary-400"
+              className={`inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] ${metaTextClass} transition ${
+                isLight ? 'hover:text-[#FF6F00]' : 'hover:text-primary-400'
+              }`}
             >
               ← Back to Blog
             </Link>
             <div className="mt-8 flex items-center gap-3">
-              <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
+              <span className={badgeClass}>
                 {article.category}
               </span>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
+              <p className={`text-xs font-semibold uppercase tracking-[0.3em] ${metaTextClass}`}>
                 {article.date} · {article.readingTime}
               </p>
             </div>
-            <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">{article.title}</h1>
+            <h1 className={`mt-6 text-4xl font-semibold sm:text-5xl lg:text-6xl ${headingClass}`}>{article.title}</h1>
             <div className="mt-6 flex items-center gap-4">
-              <div className="h-10 w-10 rounded-full bg-gradient-primary flex items-center justify-center text-neutral-900 font-semibold">
+              <div
+                className={`flex h-10 w-10 items-center justify-center rounded-full font-semibold ${
+                  isLight ? 'bg-[#FF6F00] text-white' : 'bg-gradient-primary text-neutral-900'
+                }`}
+              >
                 {article.author.charAt(0)}
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">{article.author}</p>
-                <p className="text-xs text-neutral-400">Digital Marketing Executive</p>
+                <p className={`text-sm font-semibold ${headingClass}`}>{article.author}</p>
+                <p className={`text-xs ${metaTextClass}`}>Digital Marketing Executive</p>
               </div>
             </div>
           </Motion.div>
@@ -94,10 +122,10 @@ const BlogDetail = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="prose prose-invert prose-lg max-w-none"
+            className={proseClass}
           >
             <div
-              className="article-content text-neutral-300 leading-relaxed"
+              className={`article-content ${articleContentVariant}`}
               dangerouslySetInnerHTML={{ __html: article.content }}
               style={{
                 fontSize: '1.125rem',
@@ -115,11 +143,11 @@ const BlogDetail = () => {
           >
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral-400">Share This Article</p>
+                <p className={`text-sm font-semibold uppercase tracking-[0.3em] ${metaTextClass}`}>Share This Article</p>
                 <div className="mt-4 flex gap-4">
                   <button
                     type="button"
-                    className="rounded-full border border-neutral-400/20 bg-neutral-800/30 p-3 text-neutral-400 transition hover:border-primary-400/40 hover:text-primary-400"
+                    className={shareButtonClass}
                     aria-label="Share on Twitter"
                   >
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -128,7 +156,7 @@ const BlogDetail = () => {
                   </button>
                   <button
                     type="button"
-                    className="rounded-full border border-neutral-400/20 bg-neutral-800/30 p-3 text-neutral-400 transition hover:border-primary-400/40 hover:text-primary-400"
+                    className={shareButtonClass}
                     aria-label="Share on LinkedIn"
                   >
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -138,7 +166,7 @@ const BlogDetail = () => {
                   </button>
                   <button
                     type="button"
-                    className="rounded-full border border-neutral-400/20 bg-neutral-800/30 p-3 text-neutral-400 transition hover:border-primary-400/40 hover:text-primary-400"
+                    className={shareButtonClass}
                     aria-label="Copy link"
                     onClick={() => {
                       navigator.clipboard.writeText(window.location.href)
@@ -153,7 +181,7 @@ const BlogDetail = () => {
               </div>
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 rounded-full border border-neutral-400/20 bg-neutral-800/30 px-6 py-3 text-sm font-semibold text-neutral-300 transition hover:border-primary-400/40 hover:text-primary-300"
+                className={backButtonClass}
               >
                 ← Back to All Articles
               </Link>
@@ -168,7 +196,7 @@ const BlogDetail = () => {
           <div className="mx-auto max-w-7xl px-6">
             <div className="mb-12 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-400">Related Articles</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white">Continue Reading</h2>
+              <h2 className={`mt-4 text-3xl font-semibold ${headingClass}`}>Continue Reading</h2>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
               {relatedArticles.map((related, index) => (
@@ -181,15 +209,21 @@ const BlogDetail = () => {
                   className="glass gradient-border rounded-3xl border border-neutral-400/10 p-6 transition hover:-translate-y-1 hover:border-primary-400/20"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
+                    <span
+                      className={
+                        isLight
+                          ? 'rounded-full border border-[#FF6F00]/25 bg-[#FF6F00]/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#B34D00]'
+                          : 'rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300'
+                      }
+                    >
                       {related.category}
                     </span>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
+                    <p className={`text-xs font-semibold uppercase tracking-[0.3em] ${metaTextClass}`}>
                       {related.date} · {related.readingTime}
                     </p>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-white">{related.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-300">{related.excerpt}</p>
+                  <h3 className={`mt-4 text-xl font-semibold ${headingClass}`}>{related.title}</h3>
+                  <p className={`mt-3 text-sm leading-relaxed ${bodyTextClass}`}>{related.excerpt}</p>
                   <Link
                     to={`/blog/${related.id}`}
                     className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"

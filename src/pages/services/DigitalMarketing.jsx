@@ -9,10 +9,25 @@ const DigitalMarketing = () => {
       <SectionTitle title="Digital Marketing" subtitle="Data-driven growth across paid and organic" />
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {digitalMarketing.map((svc) => (
-          <Link to={`/services/digital-marketing/${svc.slug}`} key={svc.slug} className="rounded-xl border border-neutral-700/30 bg-neutral-900/40 p-5 transition hover:border-primary-400/40">
-            <div className="h-24 w-full rounded-lg border border-dashed border-neutral-600/50" />
-            <h3 className="mt-3 text-sm font-semibold text-white">{svc.title}</h3>
-            <p className="mt-1 text-xs text-neutral-300">{svc.summary}</p>
+          <Link
+            to={`/services/digital-marketing/${svc.slug}`}
+            key={svc.slug}
+            className="group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-700/30 bg-neutral-900/40 transition hover:border-primary-400/40"
+          >
+            <div className="relative h-40 w-full overflow-hidden">
+              <img
+                src={svc.image}
+                alt={svc.title}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent" />
+            </div>
+            <div className="flex flex-1 flex-col p-5">
+              <h3 className="text-base font-semibold text-white">{svc.title}</h3>
+              <p className="mt-2 text-sm text-neutral-300 flex-1">{svc.summary}</p>
+              <span className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400">Learn More →</span>
+            </div>
           </Link>
         ))}
       </div>
@@ -21,5 +36,3 @@ const DigitalMarketing = () => {
 }
 
 export default DigitalMarketing
-
-

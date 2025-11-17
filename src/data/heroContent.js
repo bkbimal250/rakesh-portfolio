@@ -1,5 +1,5 @@
 export const heroContent = {
-  badge: 'Rahadigital — Full-Service Agency',
+  badge: 'Raha digital — Full-Service Agency',
   title: 'Design, marketing, and technology that move businesses forward.',
   subtitle:
     'A 360° partner for websites, speed, CRO, SEO, social, content, data, AI, e‑commerce, and apps. We craft outcomes—not just deliverables.',
@@ -10,7 +10,7 @@ export const heroContent = {
   metrics: [
     { label: 'Projects Delivered', value: '50' },
     { label: 'Execution Success', value: '100%' },
-    { label: 'Avg Client Retention', value: '6.2 years' },
+    { label: 'Avg Client Retention', value: '3.5 Years' },
   ],
 }
 

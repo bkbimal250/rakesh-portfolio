@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { contactChannels, services } from '../../data/content'
 import { designServices, digitalMarketing, technologyServices } from '../../data/siteCatalog'
+import useTheme from '../../hooks/useTheme'
 
 const initialState = {
   name: '',
@@ -14,6 +15,20 @@ const initialState = {
 const ContactForm = () => {
   const [form, setForm] = useState(initialState)
   const [status, setStatus] = useState({ loading: false, success: null, error: null })
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
+
+  const labelColor = isLight ? 'text-[#BF4B00]' : 'text-slate-400'
+  const inputBg = isLight ? 'bg-white text-[#1A1A1A]' : 'bg-white/5 text-slate-100'
+  const inputBorder = isLight ? 'border-[#FF6F00]/25 focus:border-[#FF6F00]' : 'border-white/10 focus:border-sky-400'
+  const selectBg = isLight ? 'bg-white text-[#1A1A1A]' : 'bg-white/5 text-slate-100'
+  const textareaBg = inputBg
+  const textareaBorder = inputBorder
+  const buttonClass = isLight
+    ? 'bg-gradient-to-r from-[#FF6F00] via-[#FF8F1F] to-[#F4A300] text-white shadow-lg shadow-[#FF6F00]/30'
+    : 'bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 text-slate-900 shadow-lg shadow-sky-500/40'
+  const statusText = isLight ? 'text-[#4A4A4A]' : 'text-slate-300'
+  const statusLink = isLight ? 'text-[#FF6F00]' : 'text-sky-300'
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -44,14 +59,10 @@ const ContactForm = () => {
   }
 
   return (
-    <form
-      className="glass gradient-border rounded-3xl border border-white/10 p-10"
-      onSubmit={handleSubmit}
-      autoComplete="off"
-    >
+    <form className={`glass gradient-border rounded-3xl p-10 ${isLight ? 'border-[#FF6F00]/25' : 'border-white/10'}`} onSubmit={handleSubmit} autoComplete="off">
       <div className="grid gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" htmlFor="name">
+          <label className={`text-xs font-semibold uppercase tracking-[0.3em] ${labelColor}`} htmlFor="name">
             Name
           </label>
           <input
@@ -61,11 +72,11 @@ const ContactForm = () => {
             required
             value={form.name}
             onChange={handleChange}
-            className="h-12 rounded-full border border-white/10 bg-white/5 px-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
+            className={`h-12 rounded-full border px-4 text-sm outline-none transition ${inputBg} ${inputBorder}`}
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" htmlFor="email">
+          <label className={`text-xs font-semibold uppercase tracking-[0.3em] ${labelColor}`} htmlFor="email">
             Email
           </label>
           <input
@@ -75,11 +86,11 @@ const ContactForm = () => {
             required
             value={form.email}
             onChange={handleChange}
-            className="h-12 rounded-full border border-white/10 bg-white/5 px-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
+            className={`h-12 rounded-full border px-4 text-sm outline-none transition ${inputBg} ${inputBorder}`}
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" htmlFor="company">
+          <label className={`text-xs font-semibold uppercase tracking-[0.3em] ${labelColor}`} htmlFor="company">
             Company
           </label>
           <input
@@ -88,11 +99,11 @@ const ContactForm = () => {
             type="text"
             value={form.company}
             onChange={handleChange}
-            className="h-12 rounded-full border border-white/10 bg-white/5 px-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
+            className={`h-12 rounded-full border px-4 text-sm outline-none transition ${inputBg} ${inputBorder}`}
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" htmlFor="service">
+          <label className={`text-xs font-semibold uppercase tracking-[0.3em] ${labelColor}`} htmlFor="service">
             Service
           </label>
           <select
@@ -100,7 +111,7 @@ const ContactForm = () => {
             name="service"
             value={form.service}
             onChange={handleChange}
-            className="h-12 rounded-full border border-white/10 bg-blue/500 px-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
+            className={`h-12 rounded-full border px-4 text-sm outline-none transition ${selectBg} ${inputBorder}`}
           >
             <option value="">Select a service</option>
             {services.map((service) => (
@@ -130,7 +141,7 @@ const ContactForm = () => {
       </div>
 
       <div className="mt-6 flex flex-col gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" htmlFor="message">
+        <label className={`text-xs font-semibold uppercase tracking-[0.3em] ${labelColor}`} htmlFor="message">
           Project Overview
         </label>
         <textarea
@@ -140,24 +151,24 @@ const ContactForm = () => {
           required
           value={form.message}
           onChange={handleChange}
-          className="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
+          className={`rounded-3xl border p-4 text-sm outline-none transition ${textareaBg} ${textareaBorder}`}
         />
       </div>
 
       <button
         type="submit"
         disabled={status.loading}
-        className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 px-8 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/40 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70"
+        className={`mt-8 inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 ${buttonClass}`}
       >
         {status.loading ? 'Sending...' : 'Send Request'}
       </button>
 
       {(status.success || status.error) && (
-        <p className="mt-4 text-sm text-slate-300">
+        <p className={`mt-4 text-sm ${statusText}`}>
           {status.success || (
             <span>
               {status.error}{' '}
-              <a className="text-sky-300" href={`mailto:${contactChannels[1].value}`}>
+              <a className={statusLink} href={`mailto:${contactChannels[1].value}`}>
                 {contactChannels[1].value}
               </a>
             </span>

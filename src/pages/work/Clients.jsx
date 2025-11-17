@@ -1,20 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import { clientLogos } from '../../data/clients'
 import CTASection from '../../components/home/CTASection'
+import useTheme from '../../hooks/useTheme'
 
 const Clients = () => {
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
+  const heroGradient = isLight
+    ? 'from-[#FFF1E0]/85 via-[#FFF8F0] to-white'
+    : 'from-neutral-900/30 via-neutral-900/60 to-neutral-950'
+  const headingClass = isLight ? 'text-[#1A1A1A]' : 'text-white'
+  const textClass = isLight ? 'text-[#4A4A4A]' : 'text-neutral-300'
+
   return (
     <div className="relative overflow-hidden">
       {/* Hero Section */}
       <section className="relative overflow-hidden pb-20 pt-16 sm:pt-24">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-neutral-900/30 via-neutral-900/60 to-neutral-950" />
+        <div className={`absolute inset-0 -z-10 bg-gradient-to-b ${heroGradient}`} />
         <div className="mx-auto max-w-6xl px-6 text-center">
           <Motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-semibold text-white sm:text-6xl"
+            className={`text-4xl font-semibold sm:text-6xl ${headingClass}`}
           >
             Our Clients
           </Motion.h1>
@@ -22,7 +32,7 @@ const Clients = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-neutral-300"
+            className={`mx-auto mt-6 max-w-3xl text-base leading-relaxed ${textClass}`}
           >
             Global clientele across industries. We've had the privilege of working with innovative companies and organizations worldwide.
           </Motion.p>
@@ -41,14 +51,14 @@ const Clients = () => {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {clientLogos.map((client, index) => (
               <Motion.article
-                key={client.name}
+                key={client.slug}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="glass gradient-border group rounded-3xl border border-neutral-400/10 overflow-hidden transition hover:-translate-y-1 hover:border-primary-400/20"
               >
-                <div className="p-8">
+                <Link to={`/work/clients/${client.slug}`} className="block p-8">
                   {/* Client Logo/Name Section */}
                   <div
                     className={`flex h-20 items-center justify-center rounded-xl border border-neutral-400/10 bg-neutral-800/30 mb-6 transition-all ${
@@ -86,18 +96,11 @@ const Clients = () => {
                         {client.description}
                       </p>
                     )}
-                    {client.website && (
-                      <a
-                        href={client.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
-                      >
-                        Visit Website <span>→</span>
-                      </a>
-                    )}
+                    <div className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400">
+                      View Engagement <span>→</span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </Motion.article>
             ))}
           </div>

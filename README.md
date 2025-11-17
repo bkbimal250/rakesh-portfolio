@@ -1,6 +1,6 @@
-# Rahadigital (React + Vite)
+# Raha digital (React + Vite)
 
-Rahadigital is a modern, responsive digital agency website built with React and Vite. It includes a modular component architecture, dark mode, responsive navigation, and a scalable page structure inspired by leading full-service agencies.
+Raha digital is a modern, responsive digital agency website built with React and Vite. It includes a modular component architecture, dark mode, responsive navigation, and a scalable page structure inspired by leading full-service agencies.
 
 ## Tech Stack
 

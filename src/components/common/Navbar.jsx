@@ -25,6 +25,32 @@ const Navbar = () => {
     setOpenMenu(null)
   }
 
+  // Group solutions by category
+  const solutionsByCategory = solutions.reduce((acc, solution) => {
+    const category = solution.category || 'Other'
+    if (!acc[category]) {
+      acc[category] = []
+    }
+    acc[category].push({
+      label: solution.title,
+      href: `/solutions/${solution.slug}`,
+    })
+    return acc
+  }, {})
+
+  // Group industries by category
+  const industriesByCategory = industries.reduce((acc, industry) => {
+    const category = industry.category || 'Other'
+    if (!acc[category]) {
+      acc[category] = []
+    }
+    acc[category].push({
+      label: industry.title,
+      href: `/industries/${industry.slug}`,
+    })
+    return acc
+  }, {})
+
   const mega = {
     Services: [
       {
@@ -57,24 +83,14 @@ const Navbar = () => {
         ],
       },
     ],
-    Solutions: [
-      {
-        title: 'Solutions',
-        items: solutions.map((solution) => ({
-          label: solution.title,
-          href: `/solutions/${solution.slug}`,
-        })),
-      },
-    ],
-    Industries: [
-      {
-        title: 'Industries',
-        items: industries.map((industry) => ({
-          label: industry.title,
-          href: `/industries/${industry.slug}`,
-        })),
-      },
-    ],
+    Solutions: Object.entries(solutionsByCategory).map(([category, items]) => ({
+      title: category,
+      items,
+    })),
+    Industries: Object.entries(industriesByCategory).map(([category, items]) => ({
+      title: category,
+      items,
+    })),
     Work: [
       {
         title: 'Work',
@@ -113,7 +129,7 @@ const Navbar = () => {
           className="relative text-lg font-semibold uppercase tracking-[0.4em] text-neutral-100 hover:text-white"
           onClick={handleLinkClick}
         >
-          Rahadigital
+          Raha digital
           <span className="absolute -top-1 -right-3 h-1 w-1 rounded-full bg-primary-400" />
         </Link>
 
@@ -123,6 +139,7 @@ const Navbar = () => {
             const rightAlignedLabels = ['Work', 'Insights', 'Consulting', 'Contact']
             const isRightAligned = rightAlignedLabels.includes(item.label)
             const isServices = item.label === 'Services'
+            const hasWideMenu = ['Services', 'Solutions', 'Industries'].includes(item.label)
             return (
               <div
                 key={item.path}
@@ -160,7 +177,7 @@ const Navbar = () => {
                       className={cn(
                         'absolute mt-4 max-w-[95vw] rounded-2xl border border-neutral-700/30 bg-neutral-900/90 p-8 shadow-2xl',
                         isRightAligned ? 'right-0 left-auto translate-x-0' : 'left-1/2 -translate-x-1/2',
-                        isServices ? 'min-w-[960px] w-auto' : 'min-w-[720px] w-auto'
+                        hasWideMenu ? 'min-w-[960px] w-auto' : 'min-w-[720px] w-auto'
                       )}
                     >
                       {!isServices ? (
@@ -294,7 +311,7 @@ const Navbar = () => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="absolute inset-0 h-5 w-5 text-warning transition-colors group-hover:text-warning/80"
+                    className="absolute inset-0 h-5 w-5 text-[#FF6F00] transition-colors group-hover:text-[#FF8F1F]"
                   >
                     <circle cx="12" cy="12" r="5" />
                     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
@@ -391,7 +408,7 @@ const Navbar = () => {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="absolute inset-0 h-4 w-4 text-warning-DEFAULT transition-colors group-hover:text-warning-light"
+                          className="absolute inset-0 h-4 w-4 text-[#FF6F00] transition-colors group-hover:text-[#FF8F1F]"
                         >
                           <circle cx="12" cy="12" r="5" />
                           <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />

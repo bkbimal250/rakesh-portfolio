@@ -10,6 +10,8 @@ import Work from '../pages/Work';
 import WorkPortfolio from '../pages/work/Portfolio';
 import WorkClients from '../pages/work/Clients';
 import WorkCaseStudies from '../pages/work/CaseStudies';
+import CaseStudyDetail from '../pages/work/CaseStudyDetail';
+import ClientDetail from '../pages/work/ClientDetail';
 import Insights from '../pages/Insights';
 import News from '../pages/insights/News';
 import NewsDetail from '../pages/insights/NewsDetail';
@@ -46,7 +48,9 @@ const AppRoutes = () => {
         <Route path="/work" element={<MainLayout><Work /></MainLayout>} />
         <Route path="/work/portfolio" element={<MainLayout><WorkPortfolio /></MainLayout>} />
         <Route path="/work/clients" element={<MainLayout><WorkClients /></MainLayout>} />
+        <Route path="/work/clients/:slug" element={<MainLayout><ClientDetail /></MainLayout>} />
         <Route path="/work/case-studies" element={<MainLayout><WorkCaseStudies /></MainLayout>} />
+        <Route path="/work/case-studies/:slug" element={<MainLayout><CaseStudyDetail /></MainLayout>} />
         <Route path="/insights" element={<MainLayout><Insights /></MainLayout>} />
         <Route path="/insights/news" element={<MainLayout><News /></MainLayout>} />
         <Route path="/insights/news/:id" element={<MainLayout><NewsDetail /></MainLayout>} />

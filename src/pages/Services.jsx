@@ -4,8 +4,18 @@ import { motion as Motion } from 'framer-motion'
 import { processSteps } from '../data/content'
 import { designServices, digitalMarketing, technologyServices } from '../data/siteCatalog'
 import CTASection from '../components/home/CTASection'
+import useTheme from '../hooks/useTheme'
 
 const Services = () => {
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
+
+  const heroGradient = isLight
+    ? 'from-[#FFF1E0]/85 via-[#FFF8F0] to-white'
+    : 'from-neutral-900/40 via-neutral-900/60 to-neutral-950'
+  const heroHeading = isLight ? 'text-[#1A1A1A]' : 'text-white'
+  const heroText = isLight ? 'text-[#4A4A4A]' : 'text-neutral-300'
+
   const serviceCategories = [
     {
       title: 'Digital Marketing',
@@ -48,13 +58,13 @@ const Services = () => {
   return (
     <div className="relative overflow-hidden">
       <section className="relative overflow-hidden pb-20 pt-16 sm:pt-24">
-        <div className="absolute inset-x-0 top-0 -z-10 h-full bg-gradient-to-b from-neutral-900/40 via-neutral-900/60 to-neutral-950" />
+        <div className={`absolute inset-x-0 top-0 -z-10 h-full bg-gradient-to-b ${heroGradient}`} />
         <div className="mx-auto max-w-6xl px-6 text-center">
           <Motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-semibold text-white sm:text-6xl"
+            className={`text-4xl font-semibold sm:text-6xl ${heroHeading}`}
           >
             Comprehensive Digital Services for Sustainable Growth
           </Motion.h1>
@@ -62,7 +72,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-neutral-300"
+            className={`mx-auto mt-6 max-w-3xl text-base leading-relaxed ${heroText}`}
           >
             From design and development to digital marketing and technology solutions, we deliver data-driven strategies that drive measurable results. Every project is optimized for maximum ROI and continuous improvement.
           </Motion.p>

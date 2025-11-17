@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import { caseStudies, metrics } from '../data/content'
 import CTASection from '../components/home/CTASection'
@@ -34,14 +35,14 @@ const Portfolio = () => {
           <div className="grid gap-12">
             {caseStudies.map((study, index) => (
               <Motion.article
-                key={study.title}
+                key={study.slug}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="glass gradient-border overflow-hidden rounded-[2.5rem] border border-neutral-400/10 bg-neutral-800/30 p-1"
               >
-                <div className="rounded-[2.4rem] bg-neutral-950/80 p-12">
+                <Link to={`/work/case-studies/${study.slug}`} className="rounded-[2.4rem] bg-neutral-950/80 p-12 block">
                   <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
                     <div className="lg:w-1/3">
                       <div
@@ -67,7 +68,8 @@ const Portfolio = () => {
                       </ul>
                     </div>
                   </div>
-                </div>
+                  </div>
+                </Link>
               </Motion.article>
             ))}
           </div>

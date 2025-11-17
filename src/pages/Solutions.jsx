@@ -3,18 +3,27 @@ import { Link } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import { solutions } from '../data/solutionsData'
 import CTASection from '../components/home/CTASection'
+import useTheme from '../hooks/useTheme'
 
 const Solutions = () => {
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
+  const heroGradient = isLight
+    ? 'from-[#FFF1E0]/85 via-[#FFF8F0] to-white'
+    : 'from-neutral-900/30 via-neutral-900/60 to-neutral-950'
+  const headingClass = isLight ? 'text-[#1A1A1A]' : 'text-white'
+  const textClass = isLight ? 'text-[#4A4A4A]' : 'text-neutral-300'
+
   return (
     <div className="relative overflow-hidden">
       <section className="relative overflow-hidden pb-20 pt-16 sm:pt-24">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-neutral-900/30 via-neutral-900/60 to-neutral-950" />
+        <div className={`absolute inset-0 -z-10 bg-gradient-to-b ${heroGradient}`} />
         <div className="mx-auto max-w-6xl px-6 text-center">
           <Motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-semibold text-white sm:text-6xl"
+            className={`text-4xl font-semibold sm:text-6xl ${headingClass}`}
           >
             Purpose-Built Solutions to Accelerate Your Growth
           </Motion.h1>
@@ -22,7 +31,7 @@ const Solutions = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-neutral-300"
+            className={`mx-auto mt-6 max-w-3xl text-base leading-relaxed ${textClass}`}
           >
             Discover our suite of innovative solutions designed to solve specific business challenges and drive measurable results across wellness, media, education, and marketing.
           </Motion.p>

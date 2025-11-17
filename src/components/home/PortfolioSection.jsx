@@ -24,43 +24,45 @@ const PortfolioSection = () => {
         <div className="mt-10 grid gap-8 md:mt-16 lg:grid-cols-2">
           {caseStudies.map((study, index) => (
             <Motion.article
-              key={study.title}
+              key={study.slug}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative overflow-hidden rounded-3xl border border-neutral-400/5 bg-neutral-900/30 backdrop-blur-sm transition hover:-translate-y-1 hover:border-primary-400/20"
             >
-              <div className="relative h-60 w-full overflow-hidden">
-                <img
-                  src={study.image}
-                  alt={study.title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/40 to-transparent" />
-              </div>
-              <div className="p-8">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary-300">
-                    {study.category}
-                  </span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500">2025</span>
+              <Link to={`/work/case-studies/${study.slug}`}>
+                <div className="relative h-60 w-full overflow-hidden">
+                  <img
+                    src={study.image}
+                    alt={study.title}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/40 to-transparent" />
                 </div>
-                <h3 className="mt-6 text-2xl font-semibold text-white">{study.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-neutral-300">{study.description}</p>
-                <ul className="mt-6 space-y-2 text-sm text-accent-300">
-                  {study.impact.map((impact) => (
-                    <li key={impact} className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent-400" /> {impact}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
-                  <span>View Narrative</span>
-                  <span className="text-primary-400 transition group-hover:text-primary-300">→</span>
+                <div className="p-8">
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary-300">
+                      {study.category}
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500">2025</span>
+                  </div>
+                  <h3 className="mt-6 text-2xl font-semibold text-white">{study.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-neutral-300">{study.description}</p>
+                  <ul className="mt-6 space-y-2 text-sm text-accent-300">
+                    {study.impact.map((impact) => (
+                      <li key={impact} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent-400" /> {impact}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-8 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
+                    <span>View Narrative</span>
+                    <span className="text-primary-400 transition group-hover:text-primary-300">→</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </Motion.article>
           ))}
         </div>
