@@ -1,29 +1,29 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
-import { blogPosts } from '../data/content'
-import CTASection from '../components/home/CTASection'
+import { newsItems } from '../../data/content'
+import CTASection from '../../components/home/CTASection'
 
-const BlogDetail = () => {
+const NewsDetail = () => {
   const { id } = useParams()
-  const article = blogPosts.find((post) => post.id === id)
+  const article = newsItems.find((item) => item.id === id)
 
   if (!article) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
-          <h1 className="text-3xl font-semibold text-white">Article Not Found</h1>
-          <Link to="/blog" className="mt-4 inline-block text-primary-400 hover:text-primary-300">
-            ← Back to Blog
+          <h1 className="text-3xl font-semibold text-white">News Article Not Found</h1>
+          <Link to="/insights/news" className="mt-4 inline-block text-primary-400 hover:text-primary-300">
+            ← Back to News
           </Link>
         </div>
       </div>
     )
   }
 
-  // Find related articles (same category, excluding current)
-  const relatedArticles = blogPosts
-    .filter((post) => post.category === article.category && post.id !== article.id)
+  // Find related news (same category, excluding current)
+  const relatedNews = newsItems
+    .filter((item) => item.category === article.category && item.id !== article.id)
     .slice(0, 3)
 
   return (
@@ -38,17 +38,17 @@ const BlogDetail = () => {
             transition={{ duration: 0.6 }}
           >
             <Link
-              to="/blog"
+              to="/insights/news"
               className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-neutral-400 transition hover:text-primary-400"
             >
-              ← Back to Blog
+              ← Back to News
             </Link>
             <div className="mt-8 flex items-center gap-3">
               <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
                 {article.category}
               </span>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
-                {article.date} · {article.readingTime}
+                {article.date}
               </p>
             </div>
             <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">{article.title}</h1>
@@ -152,50 +152,62 @@ const BlogDetail = () => {
                 </div>
               </div>
               <Link
-                to="/blog"
+                to="/insights/news"
                 className="inline-flex items-center gap-2 rounded-full border border-neutral-400/20 bg-neutral-800/30 px-6 py-3 text-sm font-semibold text-neutral-300 transition hover:border-primary-400/40 hover:text-primary-300"
               >
-                ← Back to All Articles
+                ← Back to All News
               </Link>
             </div>
           </Motion.div>
         </div>
       </section>
 
-      {/* Related Articles */}
-      {relatedArticles.length > 0 && (
+      {/* Related News */}
+      {relatedNews.length > 0 && (
         <section className="border-t border-neutral-400/10 py-20">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mb-12 text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-400">Related Articles</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white">Continue Reading</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-400">Related News</p>
+              <h2 className="mt-4 text-3xl font-semibold text-white">More Updates</h2>
             </div>
             <div className="grid gap-8 md:grid-cols-3">
-              {relatedArticles.map((related, index) => (
+              {relatedNews.map((related, index) => (
                 <Motion.article
                   key={related.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="glass gradient-border rounded-3xl border border-neutral-400/10 p-6 transition hover:-translate-y-1 hover:border-primary-400/20"
+                  className="glass gradient-border rounded-3xl border border-neutral-400/10 overflow-hidden transition hover:-translate-y-1 hover:border-primary-400/20"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
-                      {related.category}
-                    </span>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
-                      {related.date} · {related.readingTime}
-                    </p>
+                  {related.image && (
+                    <div className="relative h-40 w-full overflow-hidden">
+                      <img
+                        src={related.image}
+                        alt={related.title}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-center gap-3">
+                      <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
+                        {related.category}
+                      </span>
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
+                        {related.date}
+                      </p>
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold text-white">{related.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-neutral-300">{related.excerpt}</p>
+                    <Link
+                      to={`/insights/news/${related.id}`}
+                      className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
+                    >
+                      Read More <span>→</span>
+                    </Link>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-white">{related.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-300">{related.excerpt}</p>
-                  <Link
-                    to={`/blog/${related.id}`}
-                    className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
-                  >
-                    Read Article <span>→</span>
-                  </Link>
                 </Motion.article>
               ))}
             </div>
@@ -208,5 +220,5 @@ const BlogDetail = () => {
   )
 }
 
-export default BlogDetail
+export default NewsDetail
 

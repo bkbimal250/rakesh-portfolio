@@ -1,10 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
-import { services, processSteps } from '../data/content'
+import { processSteps } from '../data/content'
+import { designServices, digitalMarketing, technologyServices } from '../data/siteCatalog'
 import CTASection from '../components/home/CTASection'
 
 const Services = () => {
+  const serviceCategories = [
+    {
+      title: 'Digital Marketing',
+      description: 'Data-driven marketing strategies that drive measurable results',
+      services: digitalMarketing,
+      categorySlug: 'digital-marketing',
+      route: '/services/digital-marketing',
+    },
+    {
+      title: 'Design Services',
+      description: 'Modern, conversion-focused designs with accessibility and performance',
+      services: designServices,
+      categorySlug: 'design',
+      route: '/services/design',
+    },
+    {
+      title: 'Technology Services',
+      description: 'Cutting-edge technology solutions for your business needs',
+      services: technologyServices,
+      categorySlug: 'technology',
+      route: '/services/technology',
+    },
+  ]
+
   const addOns = [
     {
       title: 'Analytics & Reporting',
@@ -31,7 +56,7 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="text-4xl font-semibold text-white sm:text-6xl"
           >
-            Comprehensive digital marketing services for sustainable growth.
+            Comprehensive Digital Services for Sustainable Growth
           </Motion.h1>
           <Motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -39,54 +64,80 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-neutral-300"
           >
-            From SEO to paid advertising, I deliver data-driven marketing strategies that drive measurable results. Every
-            campaign is optimized for maximum ROI and continuous improvement.
+            From design and development to digital marketing and technology solutions, we deliver data-driven strategies that drive measurable results. Every project is optimized for maximum ROI and continuous improvement.
           </Motion.p>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-10 lg:grid-cols-2">
-            {services.map((service, index) => (
-              <Motion.article
-                key={service.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass gradient-border flex h-full flex-col rounded-3xl border border-neutral-400/10 p-10"
+      {/* Service Categories */}
+      {serviceCategories.map((category, categoryIndex) => (
+        <section key={category.categorySlug} className={categoryIndex === 0 ? 'py-20' : 'pb-20'}>
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-12 text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-primary-400">{category.title}</p>
+              <h2 className="mt-4 text-3xl font-semibold text-white">{category.title}</h2>
+              <p className="mt-4 text-sm text-neutral-300">{category.description}</p>
+              <Link
+                to={category.route}
+                className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h2 className="text-2xl font-semibold text-white">{service.name}</h2>
-                    <p className="mt-4 text-sm leading-relaxed text-neutral-300">{service.description}</p>
-                  </div>
-                  <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary-300">
-                    Service
-                  </span>
-                </div>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {service.deliverables.map((deliverable) => (
-                    <span
-                      key={deliverable}
-                      className="rounded-full border border-neutral-400/10 bg-neutral-800/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-300"
-                    >
-                      {deliverable}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  to="/contact"
-                  className="mt-10 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
+                View All {category.title} <span>→</span>
+              </Link>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {category.services.slice(0, 6).map((service, index) => (
+                <Motion.article
+                  key={service.name || service.title || service.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="glass gradient-border group flex h-full flex-col rounded-3xl border border-neutral-400/10 overflow-hidden transition hover:-translate-y-1 hover:border-primary-400/20"
                 >
-                  Get Started <span>→</span>
-                </Link>
-              </Motion.article>
-            ))}
+                  <Link
+                    to={
+                      category.categorySlug === 'digital-marketing'
+                        ? `/services/digital-marketing/${service.slug || service.name.toLowerCase().replace(/\s+/g, '-')}`
+                        : `${category.route}/${service.slug}`
+                    }
+                  >
+                    <div className="p-8">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-white transition group-hover:text-primary-400">
+                            {service.name || service.title}
+                          </h3>
+                          <p className="mt-3 text-sm leading-relaxed text-neutral-300 line-clamp-3">
+                            {service.description || service.summary}
+                          </p>
+                        </div>
+                        <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300 flex-shrink-0">
+                          {category.categorySlug === 'digital-marketing' ? 'Marketing' : category.categorySlug}
+                        </span>
+                      </div>
+                      {(service.deliverables || service.bullets) && (
+                        <div className="mt-6 flex flex-wrap gap-2">
+                          {(service.deliverables || service.bullets || []).slice(0, 3).map((item, idx) => (
+                            <span
+                              key={idx}
+                              className="rounded-full border border-neutral-400/10 bg-neutral-800/30 px-3 py-1 text-xs text-neutral-300"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      <div className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition group-hover:text-primary-300">
+                        Learn More <span>→</span>
+                      </div>
+                    </div>
+                  </Link>
+                </Motion.article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       <section className="py-20">
         <div className="mx-auto max-w-6xl rounded-[3rem] border border-neutral-400/10 bg-neutral-800/30 p-12">

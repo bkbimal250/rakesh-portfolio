@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '../components/common/Header'
 import Navbar from '../components/common/Navbar'
 import Footer from '../components/common/Footer'
+import FloatingContactButton from '../components/common/FloatingContactButton'
+import BackToTopButton from '../components/common/BackToTopButton'
 
 const MainLayout = ({ children }) => {
   return (
@@ -14,6 +16,8 @@ const MainLayout = ({ children }) => {
       <Navbar />
       <main className="relative z-10">{children}</main>
       <Footer />
+      <FloatingContactButton />
+      <BackToTopButton />
     </div>
   )
 }

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion as Motion } from 'framer-motion'
 import { navLinks } from '../../data/content'
+import { designServices, digitalMarketing, technologyServices } from '../../data/siteCatalog'
+import { solutions } from '../../data/solutionsData'
+import { industries } from '../../data/industriesData'
 import useTheme from '../../hooks/useTheme'
 import useUI from '../../hooks/useUI'
 import { cn } from '../../utils/cn'
@@ -26,43 +29,24 @@ const Navbar = () => {
     Services: [
       {
         title: 'Design',
-        items: [
-          { label: 'Website Design', href: '/services/design' },
-          { label: 'Speed Optimization', href: '/services/design' },
-          { label: 'Conversion Rate Optimization', href: '/services/design' },
-          { label: 'Responsive Design', href: '/services/design' },
-          { label: 'WordPress to HTML', href: '/services/design' },
-          { label: 'UI/UX Design', href: '/services/design' },
-          { label: 'Website Maintenance', href: '/services/design' },
-        ],
+        items: designServices.map((service) => ({
+          label: service.title,
+          href: `/services/design/${service.slug}`,
+        })),
       },
       {
         title: 'Digital Marketing',
-        items: [
-          { label: 'SEO', href: '/services/digital-marketing' },
-          { label: 'Social Media', href: '/services/digital-marketing' },
-          { label: 'Content Marketing', href: '/services/digital-marketing' },
-          { label: 'Email Marketing', href: '/services/digital-marketing' },
-          { label: 'Personal Branding', href: '/services/digital-marketing' },
-          { label: 'Growth Hacking', href: '/services/digital-marketing' },
-          { label: 'PPC Campaigns', href: '/services/digital-marketing' },
-          { label: 'Influencer Marketing', href: '/services/digital-marketing' },
-        ],
+        items: digitalMarketing.map((service) => ({
+          label: service.title,
+          href: `/services/digital-marketing/${service.slug}`,
+        })),
       },
       {
         title: 'Technology',
-        items: [
-          { label: 'Data & AI', href: '/services/technology' },
-          { label: 'E‑Commerce', href: '/services/technology' },
-          { label: 'Catalog', href: '/services/technology' },
-          { label: 'Mobile Apps', href: '/services/technology' },
-          { label: 'CMS', href: '/services/technology' },
-          { label: 'IoT', href: '/services/technology' },
-          { label: 'VR', href: '/services/technology' },
-          { label: 'ERP', href: '/services/technology' },
-          { label: 'Shopify Dev', href: '/services/technology' },
-          { label: 'WordPress Dev', href: '/services/technology' },
-        ],
+        items: technologyServices.map((service) => ({
+          label: service.title,
+          href: `/services/technology/${service.slug}`,
+        })),
       },
       {
         title: 'Website Packages',
@@ -76,26 +60,19 @@ const Navbar = () => {
     Solutions: [
       {
         title: 'Solutions',
-        items: [
-          { label: 'Fitmate', href: '/solutions/fitmate' },
-          { label: 'Cam360 Studio', href: '/solutions/cam360-studio' },
-          { label: 'Assessmo', href: '/solutions/assessmo' },
-          { label: 'Webino', href: '/solutions/webino' },
-          { label: 'VR Magic', href: '/solutions/vr-magic' },
-          { label: 'BizOn', href: '/solutions/bizon' },
-        ],
+        items: solutions.map((solution) => ({
+          label: solution.title,
+          href: `/solutions/${solution.slug}`,
+        })),
       },
     ],
     Industries: [
       {
         title: 'Industries',
-        items: [
-          { label: 'Education', href: '/industries/education' },
-          { label: 'Information Technology', href: '/industries/information-technology' },
-          { label: 'Hospitality', href: '/industries/hospitality' },
-          { label: 'Healthcare', href: '/industries/healthcare' },
-          { label: 'Pharma', href: '/industries/pharma' },
-        ],
+        items: industries.map((industry) => ({
+          label: industry.title,
+          href: `/industries/${industry.slug}`,
+        })),
       },
     ],
     Work: [

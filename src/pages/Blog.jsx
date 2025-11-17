@@ -70,24 +70,37 @@ const Blog = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.12 }}
-                  className="glass gradient-border rounded-3xl border border-neutral-400/10 p-8 transition hover:-translate-y-1 hover:border-primary-400/20"
+                  className="glass gradient-border rounded-3xl border border-neutral-400/10 overflow-hidden transition hover:-translate-y-1 hover:border-primary-400/20"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
-                      {post.category}
-                    </span>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
-                      {post.date} · {post.readingTime}
-                    </p>
+                  {post.image && (
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent" />
+                    </div>
+                  )}
+                  <div className="p-8">
+                    <div className="flex items-center gap-3">
+                      <span className="rounded-full border border-primary-400/20 bg-primary-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary-300">
+                        {post.category}
+                      </span>
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
+                        {post.date} · {post.readingTime}
+                      </p>
+                    </div>
+                    <h2 className="mt-4 text-2xl font-semibold text-white">{post.title}</h2>
+                    <p className="mt-3 text-sm leading-relaxed text-neutral-300">{post.excerpt}</p>
+                    <Link
+                      to={`/blog/${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
+                    >
+                      Read Article <span>→</span>
+                    </Link>
                   </div>
-                  <h2 className="mt-4 text-2xl font-semibold text-white">{post.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-300">{post.excerpt}</p>
-                  <Link
-                    to={`/blog/${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-primary-400 transition hover:text-primary-300"
-                  >
-                    Read Article <span>→</span>
-                  </Link>
                 </Motion.article>
               ))}
             </div>

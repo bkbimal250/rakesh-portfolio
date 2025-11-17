@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { contactChannels } from '../../data/content'
+import { contactChannels, services } from '../../data/content'
+import { designServices, digitalMarketing, technologyServices } from '../../data/siteCatalog'
 
 const initialState = {
   name: '',
   email: '',
   company: '',
-  budget: '',
+  service: '',
   message: '',
 }
 
@@ -91,20 +92,39 @@ const ContactForm = () => {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" htmlFor="budget">
-            Budget
+          <label className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400" htmlFor="service">
+            Service
           </label>
           <select
-            id="budget"
-            name="budget"
-            value={form.budget}
+            id="service"
+            name="service"
+            value={form.service}
             onChange={handleChange}
-            className="h-12 rounded-full border border-white/10 bg-white/5 px-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
+            className="h-12 rounded-full border border-white/10 bg-blue/500 px-4 text-sm text-slate-100 outline-none transition focus:border-sky-400"
           >
-            <option value="">Select a range</option>
-            <option value="25k-50k">$25k – $50k</option>
-            <option value="50k-100k">$50k – $100k</option>
-            <option value="100k-plus">$100k+</option>
+            <option value="">Select a service</option>
+            {services.map((service) => (
+              <option key={service.name} value={service.name}>
+                {service.name}
+              </option>
+            ))}
+            {designServices.map((service) => (
+              <option key={service.slug} value={service.title}>
+                {service.title}
+              </option>
+            ))}
+            {digitalMarketing.map((service) => (
+              <option key={service.slug} value={service.title}>
+                {service.title}
+              </option>
+            ))}
+            {technologyServices.map((service) => (
+              <option key={service.slug} value={service.title}>
+                {service.title}
+              </option>
+            ))}
+            <option value="Consulting">Consulting</option>
+            <option value="Other">Other</option>
           </select>
         </div>
       </div>
